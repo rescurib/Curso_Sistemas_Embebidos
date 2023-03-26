@@ -10,7 +10,21 @@ Gracias a internet, y a una enorme comunidad de creadores de contenido, vivimos 
 
 Otra area de aplicación que ha cobrado mucha importancia para la transición a energías limpias es la de [potencia digital aplicada a sistemas de energía eléctrica](https://www.st.com/content/st_com/en/ecosystems/stm32-digital-power.html).
 
-## A quíen va dirigida esta guía
+¿Pero qué es un sistema embebido en primer lugar? Una definición concisa aparece en el glosario del sitio del fabricante de dispositivos electrónicos [Analog Devices](https://www.analog.com/en/design-center/glossary/embedded-system.html):
 
-Estudiantes/egresados de ingenierías, ciencias físicas o profesionistas con planes de pivotear como desarolladores de sistemas embebidos. Las guías de estudio y el curso de STM32 tienen la intención de mostrar todos los temas que son esenciales para ejercer como desarollador profesional. Estos temas estarán sobrados para quienes tengan la intención de ser hobbistas (soy fan del ecosistema Arduino y considero que es una excelente plataforma para ese propósito). 
+>Un sistema embebido es un sistema en el que la computadora (generalmente un microcontrolador o microprocesador) se considera como parte integral del sistema.
+
+Me parece una definición adecuada porque facilita el pensar en sitemas que NO son embebidos: super-computadoras utilizadas en simulaciones de procesos fisicos/biologicos, servidores que proveen servicos de nube o computadoras personales. ¿En qué casos si se considera a una computadora como parte integral de sistema? Algunos ejemplos son:
+
+* Smart phones
+* Smart watches
+* Satélites
+* Robótica móvil
+* Controladores de procesos industriales
+
+Personalmente me desagrada la traducción de *embedded* como *incrustado* pero admito que esa palabra da la buena intuación de una computadora que **incrusta** en un producto de consumo o sistema más grande (autos, aviones o lineas de ensamblaje).
+
+### A quíen va dirigida esta guía
+
+Estudiantes/egresados de ingenierías, ciencias físicas o profesionistas con planes de pivotear como desarolladores de sistemas embebidos. Las guías de estudio y el curso de STM32 de este repo tienen la intención de mostrar los temas esenciales para ejercer como un desarollador profesional. Estos temas estarán sobrados para quienes tengan la intención de ser hobbistas (soy fan del ecosistema Arduino y considero que es una excelente plataforma para ese propósito). Hago esta última aclaración no por soberbia sino con la intención de enfatizar el tiempo y esfuerzo requerido para completar todo el road-map. El desarrollo y entendimiento de los sistemas embebidos es una habilidad académicas que tiene un retorno rápido de dinero. Recomiendo buscar las [vacantes que ofertan en Linkedin](https://www.linkedin.com/jobs/search/?currentJobId=3497879218&keywords=Embedded%20System%20Engineer&refresh=true) y ver los requisitos de cada una para ajustar los temas en los que necitan poner más atención. 
 
