@@ -35,3 +35,13 @@ Mi sagrada trinidad del libros en el tema que siempre recomiendo. Afortunadament
 * [Deep Work (Enfócate), Cal Newport](https://www.amazon.com.mx/Enf%C3%B3cate-Cal-Newport/dp/6077473421). El autor es un computólogo profesor-investigador que ha popularizado las ventajas de trabajar sin distracciones por tiempos cortos (45 a 90 minutos) y las reglas que hay que seguir para lograrlo.
 
 [^1]: Make it Stick (Apréntelo) dejó de ser editado en español por Paidos pero puedes encontrarlo en formato .epub *si sabes dónde buscar*. Puedes abrir esos archivos en tu móvil con la app Lithium. 
+
+## Guía bibliografica fundamental para sistemas embebidos
+Quiero comenzar desmintiendo un consejo que he visto muy amenudo en foros en el que se dice que para conseguir un trabajo como desarollador debes ser experto en todas las areas que cubren los sistemas embebidos: lenguajes de descripción de hardware, visión por computadora, Linux emebido y Yocto Project, procesamiento digital de señales, teoría de control, radio comunicaciones, diseño de circuitos impresos, diseño de fuentes de alimentación, etc... Esto no es verdad. Ciertamente existen muchos desarolladores veteranos (10-30 años de experiencia) que dominan casi todas esas areas pero en la práctica es suficiente con que elijas unas pocas especializaciones para conseguir una buena posición. La guía que propongo a continuación es la base para conseguir una posición Jr y es la base también sobre la cual especializarte más adelante segun tu prefeencia o retos laborales que lleguen a presentarte.
+
+## 1: Electrónica Básica
+En mi blog publiqué una guía bibliográfica completa para cubrir el *core* escencial para una ingeniería en electrónica. Puedes consultarla [acá](http://stg-pepper.blogspot.com/2018/06/guia-bibliografica-para-aprender.html) si lo deseas pero estará muy sobrada. Lo que hice fue reducirla de manera que cubra lo mínimo que necesitamos acá:
+
+<p align="center">
+<img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/SistemasEmbebidosAplicaciones.png" width="650">
+<p>
