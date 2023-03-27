@@ -51,7 +51,7 @@ Por supuesto, si ya estudias o vienes de una ing. en mecatrónica o electrónica
 Aquí comienza el corazón de los sistemas embebidos. Cuando termines este camino podrás responder entre un 60% y 70% de las preguntas de una entrevista para una vacante Jr.
 
 <p align="center">
-<img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/Lenguaje_C_Arquitectura_Computadoras.png" width="710">
+<img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/Lenguaje_C_Arquitectura_de_Computadoras.png" width="710">
 <p>
 
 ### 3: Microcontroladores 
