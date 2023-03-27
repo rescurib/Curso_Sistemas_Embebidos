@@ -53,3 +53,9 @@ Aquí comienza el corazón de los sistemas embebidos. Cuando termines este camin
 <p align="center">
 <img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/Lenguaje_C_Arquitectura_Computadoras.png" width="710">
 <p>
+
+### 3: Microcontroladores 
+<p align="center">
+<img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/Guia_Microcontroladores.png" width="710">
+<p>
+
