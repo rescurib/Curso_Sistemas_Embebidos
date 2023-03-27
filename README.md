@@ -46,14 +46,18 @@ En mi blog publiqué una guía bibliográfica completa para cubrir el *core* esc
 <img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/Electronica_Minimo.png" width="700">
 <p>
 
-Por supuesto, si ya estudias o vienes de una ing. en mecatrónica o electrónica puedes omitir esta parte. Recomiendo tambien instalar [Kicad](https://www.kicad.org/), que es una plataforma de diseño de circuitos impresos gratuita y de código abierto. [Aquí](https://www.youtube.com/playlist?list=PLkyFkq6L7y6tmqIB3yqkS0UnTWYbsH3wn) hay un curso en Youtube muy bueno hecho por [Antonio Raptors](https://github.com/antonioraptors).
+Por supuesto, si ya estudias o vienes de una ing. en mecatrónica o electrónica puedes omitir esta parte. 
+  
+Recomiendo también instalar [Kicad](https://www.kicad.org/), que es una plataforma de diseño de circuitos impresos gratuita y de código abierto. [Aquí](https://www.youtube.com/playlist?list=PLkyFkq6L7y6tmqIB3yqkS0UnTWYbsH3wn) hay un curso en Youtube muy bueno hecho por [Antonio Raptors](https://github.com/antonioraptors).
 
 ### 2: Lenguaje C y Arquitectura de Computadoras
-Aquí comienza el corazón de los sistemas embebidos. Al terminar este camino podrás responder entre un 50% y 60% de las preguntas de una entrevista para una vacante Jr.
+Ahora comenzamos con el corazón de los sistemas embebidos. Al terminar este camino podrás responder entre un 50% y 60% de las preguntas de una entrevista para una vacante Jr:
 
 <p align="center">
 <img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/Lenguaje_C_Arquitectura_Computadoras.png" width="710">
 <p>
+  
+  Por experiencia como desarollador de firmware puedo asegurar que el entender la arquitectura de los procesadores no es mera *cultura general* sino una necesidad real a la hora de resolver problemas y diseñar software embebido. No puedo hacer el sufiente énfasis en la importancia de llevar el estudio de la arquitectura de la mano del estudio profundo del lenguaje C. 
 
 ### 3: Microcontroladores 
 <p align="center">
