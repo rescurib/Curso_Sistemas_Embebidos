@@ -43,5 +43,5 @@ Quiero comenzar desmintiendo un consejo que he visto muy amenudo en foros en el 
 En mi blog publiqué una guía bibliográfica completa para cubrir el *core* escencial para una ingeniería en electrónica. Puedes consultarla [acá](http://stg-pepper.blogspot.com/2018/06/guia-bibliografica-para-aprender.html) si lo deseas pero estará muy sobrada. Lo que hice fue reducirla de manera que cubra lo mínimo que necesitamos acá:
 
 <p align="center">
-<img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/SistemasEmbebidosAplicaciones.png" width="650">
+<img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/Electronica_Minimo.png" width="700">
 <p>
