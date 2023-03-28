@@ -57,11 +57,12 @@ Ahora comenzamos con el corazón de los sistemas embebidos. Al terminar este cam
 <img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/Lenguaje_C_Arquitectura_Computadoras.png" width="710">
 <p>
   
-  Por experiencia como desarollador de firmware puedo asegurar que el entender la arquitectura de los procesadores no es mera *cultura general* sino una necesidad real a la hora de resolver problemas y diseñar software embebido. No puedo hacer el sufiente énfasis en la importancia de llevar el estudio de la arquitectura de la mano del estudio profundo del lenguaje C. 
+  Como desarollador de firmware puedo asegurar que el entender la arquitectura de los procesadores no es mera *cultura general* sino una necesidad real a la hora de resolver problemas y diseñar software embebido. Es verdaderamente importante llevar el estudio de la arquitectura de la mano del estudio profundo del lenguaje C. 
   
   Si compilar desde terminal con gcc llega a ser muy tedioso, puedes instalar [Visual Studio Code](https://code.visualstudio.com/) y seguir [este tutorial](https://www.youtube.com/watch?v=iPvvbNVisfU) para configurar la extensión para C/C++.
 
 ### 3: Microcontroladores 
+Teniendo estudiadas las guías 1 y 2 ya tienes todo lo necesario para aprovechar al máximo [mi curso de STM32](https://github.com/rescurib/Curso_Sistemas_Embebidos/tree/main/CursoSTM32). La siguiente guía puede estudiarse simultánemente. En el curso cubriré más temas como maquinas de estado y schedulers, pero estaré haciendo referencias a estos dos libros así que recomiendo seguirla completamente:
 <p align="center">
 <img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/Guia_Microcontroladores.png" width="710">
 <p>
