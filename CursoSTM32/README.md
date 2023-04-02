@@ -2,8 +2,9 @@
 
 En construcción...
 
-Contenido:
-* **Lección 0**: ARM Cortex-M y microcontrotroladores STM32
+## Contenido:
+
+* [**Lección 0**: ARM Cortex-M y microcontrotroladores STM32](https://github.com/rescurib/Curso_Sistemas_Embebidos/tree/main/CursoSTM32/Lec_0)
 * **Lección 1**: Crash-Course de procesadores y layout de memoria ARM Cortex-M
 * **Lección 2**: GPIO
 * **Lección 3**: Temporizadores y árbol de reloj
