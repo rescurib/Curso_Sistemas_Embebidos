@@ -2,6 +2,7 @@
 
 Si tienes experiencia programando microcontroladores PIC o AVR, es posible que te sientas intimidado al revisar la documentación de los fabricantes de microcontroladores basados en ARM Cortex-M. Creo que una de las razones por las que los microcontroladores PIC son tan populares en las escuelas es porque se pueden aprender a utilizar consultando un solo archivo de datasheet. Aunque la documentación para los microcontroladores ARM Cortex-M puede ser más extensa y dispersa, una vez que te familiarices con ella, podrás aprovechar al máximo la potencia y versatilidad de estos microcontroladores.
 
+## Familia de núcleos ARM Cortex-M
 El ARM Cortex-M es una familia de procesadores ARM RISC de 32 bits **licenciados** por ARM Limited. Estos núcleos están optimizados para circuitos integrados de bajo costo y eficiencia energética. Esto significa que diferentes marcas pueden comprar la licencia para incomporar estos núcleos a sus microcontroladores. 
 
 El número en el nombre de los Cortex-M hace referencia a las distintas necesidades para las que fueron diseñados: 
@@ -14,3 +15,14 @@ El número en el nombre de los Cortex-M hace referencia a las distintas necesida
 |  M3  | Un procesador integrado pequeño pero potente para microcontroladores de bajo consumo que tiene un rico conjunto de instrucciones que le permite manejar tareas complejas más rápido. Tiene un divisor de hardware e instrucciones Multiplicar-Acumular (MAC). Además, también tiene características integrales de depuración y rastreo para permitir desarrollar sus aplicaciones más rápido.|
 |  M4  | Proporciona todas las características del Cortex-M3, con instrucciones adicionales destinadas a tareas de procesamiento de señales digitales (DSP), como datos múltiples / instrucción única (SIMD) y operaciones MAC de ciclo único más rápidas. Además, tiene una unidad de punto flotante de precisión simple opcional que admite el estándar de punto flotante IEEE 754.|
 |  M7  | Procesador de alto rendimiento para microcontroladores de gama alta y aplicaciones de procesamiento intensivo. Tiene todas las funciones disponibles en Cortex-M4, con soporte adicional para punto flotante de doble precisión, así como funciones de memoria adicionales como caché y memoria estrechamente acoplada (TCM).|
+
+## Familia de microcontroladores STM32
+ll
+
+### STM32CubeIDE
+
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=m9_4bL8vJIM"><img src="https://img.youtube.com/vi/m9_4bL8vJIM/0.jpg" alt="IMAGE ALT TEXT"></a>
+</div>
+
+## Tarjeta de desarollo STM32F103C8T6 (Blue Pill)
