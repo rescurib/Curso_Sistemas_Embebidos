@@ -17,7 +17,14 @@ El número en el nombre de los Cortex-M hace referencia a las distintas necesida
 |  M7  | Procesador de alto rendimiento para microcontroladores de gama alta y aplicaciones de procesamiento intensivo. Tiene todas las funciones disponibles en Cortex-M4, con soporte adicional para punto flotante de doble precisión, así como funciones de memoria adicionales como caché y memoria estrechamente acoplada (TCM).|
 
 ## Familia de microcontroladores STM32
-ll
+
+Los microcontroladores STM32 son una familia de microcontroladores de 32 bits basados en procesadores ARM Cortex-M, fabricados por la compañía STMicroelectronics. Las familias no sólo difieren en el tipo de núcleo ARM Cortex-M sino en el tipo de periféricos, frecuencia de reloj, rangos de memoria y características de consumo de potencia.
+
+Esta tabla muestra como se clasifican algunas de estas familias:
+
+<p align="center">
+<img src="https://www.digikey.com.mx/-/media/Images/Product%20Highlights/S/STMicroelectronics/STM32%20Microcontrollers/v2/stm32-overview.jpg" width="800">
+<p>
 
 ### STM32CubeIDE
 
