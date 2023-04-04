@@ -1,4 +1,4 @@
-# Curso de Sistemas Embebidos con STM32F103 (Blue Pill)
+# Curso de Sistemas Embebidos con STM32F103
 
 En construcción...
 
@@ -10,6 +10,11 @@ En construcción...
 * **Lección 3**: Temporizadores y árbol de reloj
 * **Lección 4**: Interrupciones
 * **Lección 5**: Métodos intermedios y avanzados de depuración
-* **Lección 6**: Máquinas de estado
-* **Lección 7**: Planificador cooperativo básico
-* **Lección 8**: Programación dirigida por eventos
+* **Lección 6**: UART
+* **Lección 7**: ADC
+* **Lección 8**: SPI
+* **Lección 9**: Máquinas de estado
+* **Lección 10**: Planificador cooperativo básico
+* **Lección 11**: Programación dirigida por eventos
+* **Lección 12**: Sistema FAT32 en memoria SD
+* **Proyecto Integrador**: Datalogger
