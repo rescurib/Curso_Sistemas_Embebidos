@@ -1,6 +1,6 @@
 # Curso de Sistemas Embebidos con STM32F103
 
-En construcción...
+El objetivo de este curso es dar las herramientas fundamentales para el desarrollo profesional de sistemas embebidos basados en microcontroladores. No sólo cubrirá el uso de los perifericos más comúnes sino también técnicas de firmware robustas para la industria y la investigación científica.
 
 ## Contenido:
 
@@ -14,7 +14,12 @@ En construcción...
 * **Lección 7**: ADC
 * **Lección 8**: SPI
 * **Lección 9**: Máquinas de estado
-* **Lección 10**: Planificador cooperativo básico
-* **Lección 11**: Programación dirigida por eventos
-* **Lección 12**: Sistema FAT32 en memoria SD
+* **Lección 10** Protocolos de comunicación de nivel superior
+  * Protocolo ligero para UART o SPI
+  * Checksum y módulo CRC
+  * Tablas de comandos
+  * Procesador de paquetes (parser)
+* **Lección 11**: Planificador cooperativo básico
+* **Lección 12**: Programación dirigida por eventos
+* **Lección 13**: Sistema FAT32 en memoria SD
 * **Proyecto Integrador**: Datalogger
