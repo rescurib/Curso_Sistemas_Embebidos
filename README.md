@@ -47,6 +47,8 @@ En mi blog publiqué una guía bibliográfica completa para cubrir el *core* esc
 <p>
 
 Por supuesto, si ya estudias o vienes de una ing. en mecatrónica o electrónica puedes omitir esta parte. 
+
+Si quieren profundizar en los cálculos (opcional), [LTSpice](https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html) es una herramienta muy buena para hacer simulaciones. [Aquí](https://www.youtube.com/playlist?list=PLPYWiDnEtp4N6emDF98TFxZyw-EDc3pcw) hay un curso en español. 
   
 Recomiendo también instalar [Kicad](https://www.kicad.org/), que es una plataforma de diseño de circuitos impresos gratuita y de código abierto. [Aquí](https://www.youtube.com/playlist?list=PLkyFkq6L7y6tmqIB3yqkS0UnTWYbsH3wn) hay un curso en Youtube muy bueno hecho por [Antonio Raptors](https://github.com/antonioraptors).
 
