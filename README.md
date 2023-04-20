@@ -72,7 +72,7 @@ En las entrevistas que me han tocado (como entrevistado y entrevistador) el tema
   Si no tienes problemas con el inglés escuchado, mi clase favorita es la del profesor Onur Mutlu. Puedes ver todo el curso en Youtube en [esta](https://www.youtube.com/playlist?list=PL5PHm2jkkXmi5CxxI7b3JCL1TWybTDtKq) lista de reproducción.
   
 ### 3: Microcontroladores 
-Teniendo estudiadas las guías 1 y 2 ya tienes todo lo necesario para aprovechar al máximo [mi curso de STM32](https://github.com/rescurib/Curso_Sistemas_Embebidos/tree/main/CursoSTM32). La siguiente guía puede estudiarse simultánemente. En el curso cubriré más temas como maquinas de estado y schedulers, pero estaré haciendo referencias a estos dos libros así que recomiendo seguirla completamente:
+Teniendo estudiadas las guías 1 y 2 ya tienes todo lo necesario para aprovechar al máximo [mi curso de STM32](https://github.com/rescurib/Curso_Sistemas_Embebidos/tree/main/CursoSTM32). La siguiente guía puede estudiarse simultánemente. En el curso cubriré más temas como máquinas de estado, schedulers y parsers pero estaré haciendo referencias a estos dos libros así que recomiendo seguirla completamente:
 <p align="center">
 <img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/Guia_Microcontroladores.png" width="710">
 <p>
