@@ -13,9 +13,10 @@ Una Máquina de Carga-Almacenamiento consiste una unidad de control que se encar
 * Colocar números en los elementos de los registros.
 * Operaciones lógicas entre los elementos de los registros.
 * Operaciones aritméticas entre elementos de los registros.
+* Brincar a una instrucción específica si un registro guarda un 0.
 
 Restricciones:
 * Los resultados de las operaciones aritméticas o lógicas no pueden colocarse directamente en la memoria principal, sólo en elementos de los registros.
 
-Aunque pueda parecer nada evidente, este modelo puede hacer lo que cualquier sistema de cómputo puede hacer. A diferencia de la Máquina de Turing, este modelo es directamente concretable a una arquitectura de carga-almacenamiento como lo son ARM o RISC-V. Pero antes de eso vamos a revisar una arquitectura de juguete que me he inventado para explicar de forma clara como funcionan los procesadores:
+Aunque pueda parecer nada evidente, este modelo puede hacer lo que cualquier sistema de cómputo puede hacer. A diferencia de la Máquina de Turing, este modelo es directamente concretable a una arquitectura de carga-almacenamiento como lo son ARM o RISC-V. Pero antes de eso vamos a revisar en el siguiente video una arquitectura de juguete que me he inventado para explicar de forma clara como funcionan los procesadores:
   
