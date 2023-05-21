@@ -87,7 +87,7 @@ En las aplicaciones reales, no basta con que el código "parezca funcionar". El 
  * ¿Cómo implementar los requerimientos que debe cumplir el producto de forma adecuada?
  * Si sacamos al mercado productos distintos, ¿puedo agilizar la creación de nuevos proyectos firmware?
 
-  Esta es la parte de ingeniería de firmware. La sintaxis del lenguaje y el funcionamiento de los periféricos son solo los cimientos de los proyectos.
+  Esta es la parte de ingeniería de firmware. La sintaxis del lenguaje y el funcionamiento de los periféricos son sólo los cimientos de los proyectos. El siguiente paso es aprender a implementar patrones de diseño. El sitio de Embbedded Artistry tiene una muy buena [recopilación de patrones de diseño](https://embeddedartistry.com/fieldatlas/design-pattern-catalogue/) para sistemas embebidos pero es fácil perderse si es la primera vez que se trabaja con ellos. En esta sección muestro un camino mejor navegable...  
   
   [En construcción]
   
