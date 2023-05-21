@@ -79,8 +79,10 @@ Teniendo estudiadas las guías 1 y 2 ya tienes todo lo necesario para aprovechar
 <img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/Guia_Microcontroladores.png" width="710">
 <p>
   
+  Si ya has desarrollado otros tipos de software seguramente conoces Git. Si no es así, es importante que te familiarices con esa herramienta. [Aquí](https://www.youtube.com/playlist?list=PLdX95r_5VhojrYffoY3OEySCW4RlEtaMG) hay un curso en español de Git desde terminal y con Sourcetree. Puedes practicar creando repos de tus prácticas de microcontroladores y subir o corregir tus cambios con Sourcetree. Uno de los mejores libros sobre Git es [*Pro Git* de Scott Chacon](https://git-scm.com/book/en/v2) ¡y es gratis!
+  
 ### 4: Ingeniería de Firmware
-En las aplicaciones reales, no basta con que el código "parezca funcionar". El código debe escribirse de manera que facilite el ciclo de vida de un producto y el trabajo con tu equipo de desarrollo. Pensemos en las siguientes preguntas:
+En las aplicaciones reales no basta con que el código "parezca funcionar". El código debe escribirse de manera que facilite el ciclo de vida de un producto y el trabajo con tu equipo de desarrollo. Pensemos en las siguientes preguntas:
  * ¿Podemos añadir código de nuevas funcionalidades sin modificar demasiado el que ya existe?
  * ¿Puedo cambiar el microcontrolador sin que impacte tanto al proyecto entero?
  * ¿Puedo reutilizar el código de los módulos que ya tengo escritos para crear nuevos?
