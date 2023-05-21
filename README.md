@@ -78,4 +78,19 @@ Teniendo estudiadas las guías 1 y 2 ya tienes todo lo necesario para aprovechar
 <p align="center">
 <img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/Guia_Microcontroladores.png" width="710">
 <p>
+  
+### 4: Ingeniería de Firmware
+En las aplicaciones reales, no basta con que el código "parezca funcionar". El código debe escribirse de manera que facilite el ciclo de vida de un producto y el trabajo con tu equipo de desarrollo. Pensemos en las siguientes preguntas:
+ * ¿Podemos añadir código de nuevas funcionalidades sin modificar demasiado el que ya existe?
+ * ¿Puedo cambiar el microcontrolador sin que impacte tanto al proyecto entero?
+ * ¿Puedo reutilizar el código de los módulos que ya tengo escritos para crear nuevos?
+ * ¿Cómo implementar los requerimientos que debe cumplir el producto de forma adecuada?
+ * Si sacamos al mercado productos distintos, ¿puedo agilizar la creación de nuevos proyectos firmware?
 
+  Esta es la parte de ingeniería de firmware. La sintaxis del lenguaje y el funcionamiento de los periféricos son solo los cimientos de los proyectos.
+  
+  [En construcción]
+  
+ ### 5: Tiempo Real y Programación Orientada a Eventos
+
+  [En construcción]
