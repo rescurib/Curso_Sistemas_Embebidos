@@ -83,6 +83,8 @@ En las entrevistas que me han tocado (como entrevistado y entrevistador) el tema
   * Cap. 9: Modificaciones de listas enlazadas
   * Cap. 10: Pilas y sus aplicaciones
   * Cap. 11: Colas, colas de prioridad y montículos
+ 
+  Si este libro les parece muy formal pueden intentar con *Programacion En C/C++ Java Y Uml* también de Luis Joyanes (tiene capítulos que cubren esos temas). Es más accesible y más facil de conseguir en librerias. 
   
 ### 3: Microcontroladores 
 Teniendo estudiadas las guías 1 y 2 ya tienes todo lo necesario para aprovechar al máximo [mi curso de STM32](https://github.com/rescurib/Curso_Sistemas_Embebidos/tree/main/CursoSTM32). La siguiente guía puede estudiarse simultánemente. En el curso cubriré más temas como máquinas de estado, schedulers y parsers pero estaré haciendo referencias a estos dos libros así que recomiendo seguirla completamente:
