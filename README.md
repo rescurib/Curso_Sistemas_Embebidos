@@ -53,7 +53,7 @@ Si quieren profundizar en los cálculos (opcional), [LTSpice](https://www.analog
 Recomiendo también instalar [Kicad](https://www.kicad.org/), que es una plataforma de diseño de circuitos impresos gratuita y de código abierto. [Aquí](https://www.youtube.com/playlist?list=PLkyFkq6L7y6tmqIB3yqkS0UnTWYbsH3wn) hay un curso en Youtube muy bueno hecho por [Antonio Raptors](https://github.com/antonioraptors).
 
 ### 2: Lenguaje C y Arquitectura de Computadoras
-Ahora comenzamos con el corazón de los sistemas embebidos. Al terminar este camino podrás responder entre un 50% y 60% de las preguntas de una entrevista para una vacante Jr:
+Ahora comenzamos con el corazón de los sistemas embebidos basados en procesadores. Al terminar este camino podrás responder entre un 40% y 50% de las preguntas de una entrevista para una vacante Jr:
 
 <p align="center">
 <img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/Lenguaje_C_Arquitectura_Computadoras.png" width="710">
