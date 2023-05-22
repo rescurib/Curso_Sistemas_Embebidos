@@ -73,6 +73,17 @@ En las entrevistas que me han tocado (como entrevistado y entrevistador) el tema
   #### Computer Architecture Lectures (opcional)
   Si no tienes problemas con el inglés escuchado, mi clase favorita es la del profesor Onur Mutlu. Puedes ver todo el curso en Youtube en [esta](https://www.youtube.com/playlist?list=PL5PHm2jkkXmi5CxxI7b3JCL1TWybTDtKq) lista de reproducción.
   
+  #### Algoritmos y Estructuras de Datos
+  Estrictamente necesario ver [este](https://youtu.be/-j4hFcifLWc) excelente video sobre el manejo de memoria en C de [José Colbes](https://www.youtube.com/@ochecolbes/videos) para entender que son el heap y el stack. Después continuar con:
+  
+  *Estructuras de Datos en C*, Luis Joyanes
+  * Cap. 5: Algoritmos de búsqueda y ordenación
+  * Cap. 7: Tipos abstractos de datos y objetos
+  * Cap. 8: Listas, listas enlazadas
+  * Cap. 9: Modificaciones de listas enlazadas
+  * Cap. 10: Pilas y sus aplicaciones
+  * Cap. 11: Colas, colas de prioridad y montículos
+  
 ### 3: Microcontroladores 
 Teniendo estudiadas las guías 1 y 2 ya tienes todo lo necesario para aprovechar al máximo [mi curso de STM32](https://github.com/rescurib/Curso_Sistemas_Embebidos/tree/main/CursoSTM32). La siguiente guía puede estudiarse simultánemente. En el curso cubriré más temas como máquinas de estado, schedulers y parsers pero estaré haciendo referencias a estos dos libros así que recomiendo seguirla completamente:
 <p align="center">
