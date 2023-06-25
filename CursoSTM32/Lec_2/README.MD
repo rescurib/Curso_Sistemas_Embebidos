@@ -5,7 +5,7 @@ Para el STM32F103C8T6 necesitamos tener a la mano el documento [RM0008](https://
 
 ## Habilitación de relojes de módulo
 
-Lo sé, al principio parece una complicación innecesaria el tener que habilitar relojes para cada periferico. Si han trabajado con PICs esto no tenía que hacerse. ¿Por qué no tener un sólo reloj de sistema que no haya que habilitar individualmente? Bien, en realidad es una exelente idea el tener deshabilitados los relojes de los periféricos por defecto. Las razones son físicas. Como vimos en la guía, en los sistemas embebidos, la computadora es parte integral de sistema. En los microcontroladores los recursos son limitados y por lo tanto no podemos darnos el lujo de desperdiciarlos. Físicamente, el reloj es una señal electrica periodica que se propaga por pequeños conductores dentro de las entrañas del MCU. Esa señal consume energía eléctrica a su paso. Aún cuando un módulo no esté en uso, si el reloj no esta deshabilitado en él, seguirá consumiendo energía. Es por eso que es muy buena idea habilitarlo SÓLO en los módulos que vamos a usar. El módulo GPIO esta comunicado con procesador a travez del bus AHB2, como podemos verificar en la pag. 11 de la datasheet del STM32F103x8:
+Lo sé, al principio parece una complicación innecesaria el tener que habilitar relojes para cada periferico. Si han trabajado con PICs esto no tenía que hacerse. ¿Por qué no tener un sólo reloj de sistema que no haya que habilitar individualmente? Bien, en realidad es una exelente idea el tener deshabilitados los relojes de los periféricos por defecto. Las razones son físicas. Como vimos en la guía, en los sistemas embebidos, la computadora es parte integral de sistema. En los microcontroladores los recursos son limitados y por lo tanto no podemos darnos el lujo de desperdiciarlos. Físicamente, el reloj es una señal electrica periodica que se propaga por pequeños conductores dentro de las entrañas del MCU. Esa señal consume energía eléctrica a su paso. Aún cuando un módulo no esté en uso, si el reloj no esta deshabilitado en él, seguirá consumiendo energía. Es por eso que es muy buena idea habilitarlo SÓLO en los módulos que vamos a usar. El módulo GPIO esta comunicado con procesador a través del bus AHB2, como podemos verificar en la pag. 11 de la datasheet del STM32F103x8:
 
 <p align="center">
 <img src="https://drive.google.com/uc?export=view&id=1Z-4J_d_h0YRNMuBG7lTNu0DV098r2NiS" width="500">
@@ -16,3 +16,7 @@ El reloj debe habilitarse individualmente para cada puerto. Por esta razón nece
 <p align="center">
 <img src="https://drive.google.com/uc?export=view&id=1PuvGeLJ-usLjvQjbCLa-AOCOw7SM2ai8" width="700">
 <p>
+
+## Modos de Entrada/Salida
+
+
