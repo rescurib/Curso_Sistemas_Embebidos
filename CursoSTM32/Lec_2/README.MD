@@ -19,4 +19,6 @@ El reloj debe habilitarse individualmente para cada puerto. Por esta razón nece
 
 ## Modos de Entrada/Salida
 
+***
+[disparador Schmitt](https://www.youtube.com/watch?v=Z4pt9Abn3dY)
 
