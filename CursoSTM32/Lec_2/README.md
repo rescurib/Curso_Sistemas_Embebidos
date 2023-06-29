@@ -1,7 +1,7 @@
 # Lección 2: GPIO's
 El módulo de entradas y salidas de propósito general es el módulo más simple en los microcontroladores y sin embargo si hay unas cuantas cosas que hay que entender antes de sacarle el máximo provecho. Para los que recien llegan a los STM32 puede resultar un poco confuso por todos los modos de operación y habilitación de reloj. Así que vayamos por partes.
 
-Para el STM32F103C8T6 necesitamos tener a la mano el documento [RM0008](https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-arm-based-32-bit-mcus-stmicroelectronics.pdf) que es nuestro manual de referencia. 
+Para el STM32F103C8T6 necesitamos tener a la mano el documento [RM0008](https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-arm-based-32-bit-mcus-stmicroelectronics.pdf) que es nuestro manual de referencia y el [DS5319](https://www.st.com/resource/en/datasheet/stm32f103c8.pdf) que es la datasheet para STM32F103x8 y STM32F103xB. 
 
 ## Habilitación de relojes de módulo
 
@@ -28,6 +28,10 @@ En la pag. 163 del RM0008 se muestra el siguiente diagrama de las configuración
 <p>
 
 Podemos observar que tenemos la opición de activar/desactivar resistores pull-up y pull-down. El modo pull-up nos permite asegurar que la entrada tendra un buen nivel de alto lógico. Esto es útil cuando estamos leyendo una señal digital que venga desde un circuito que no tenga el suficiente nivel voltaje. El pull-down nos es util cuando el circuito que estamos leyendo nos da una lectura de tierra en nivel bajo. El triggrt Schmitt es un circuito que nos permite tener lecturas digitales robustas al ruido (subidas y bajadas de voltaje aleatorias). En [este video](https://www.youtube.com/watch?v=Z4pt9Abn3dY) se explica de forma clara su funcionamiento. Si requieren profundizar en el tema puede consultar la pag. 809 del Pincipios de Electrónica de Malvino-Bates. La configuración se selecciona con el registro **GPIOx_CRL** (x=A..G) [pag. 171, RM0008].
+
+Un dato que puede ser útil a la hora de identificar fallas es el valor de voltaje minimo que se toma como 1 lógico. En la tabla 35, pag. 61 de DS5319 podemos consultar los valores para el voltaje minimo de nivel alto de entrada (V_IH) y el voltaje máximo de nivel bajo de entrada (V_IL), los cuales son:
+* V_IH = 0.65*VDD | 2.145V con VDD = 3.3V
+* V_IL = 0.35*VDD  | 1.155V
 
 ### Salidas digitales
 En la pag. 164 del RM0008 se muestra el siguiente diagrama de las configuración para salida digital:
