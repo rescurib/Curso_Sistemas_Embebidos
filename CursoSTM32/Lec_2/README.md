@@ -40,4 +40,9 @@ En la pag. 164 del RM0008 se muestra el siguiente diagrama de las configuración
 <img src="https://drive.google.com/uc?export=view&id=1Vzq-MB2fV7SFw3wXyTRhjUc12uOc6oUb" width="700">
 <p>
 
+Un P-MOS es un MOSFET de canal P y un N-MOS de canal N. En modo de conmutación de comportan de la siguiente manera:
+
+<p align="center">
+<img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/PMOS_NMOS_conm.png" width="500">
+<p>
 
