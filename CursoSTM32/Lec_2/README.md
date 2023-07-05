@@ -40,9 +40,25 @@ En la pag. 164 del RM0008 se muestra el siguiente diagrama de las configuración
 <img src="https://drive.google.com/uc?export=view&id=1Vzq-MB2fV7SFw3wXyTRhjUc12uOc6oUb" width="700">
 <p>
 
-Un P-MOS es un MOSFET de canal P y un N-MOS de canal N. En modo de conmutación de comportan de la siguiente manera:
+Un P-MOS es un MOSFET de canal P y un N-MOS de canal N. En modo de conmutación, estos transitores se comportan de la siguiente manera:
 
 <p align="center">
 <img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/PMOS_NMOS_conm.png" width="500">
+<p>
+
+#### Modo Push-Pull
+El modo por defecto, y el más utilizado es el push-pull. El nombre hace referencia al empuje de corriente en alto y al *sinking* de corriente en bajo:
+
+<p align="center">
+<img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/STM32_PUSH_PULL.png" width="700">
+<p>
+
+El control de salida se encarga de enviar los voltajes correspondientes a cada MOSFET para fase. Esto permite alimentar la salida con VDD durante el alto (1) y permitir leer tierra durante el bajo (0).
+
+#### Modo Open Drain
+En modo open drain al P-MOS se le envía alto todo el tiempo de manera que VDD este siempre desconectado. ¿En que situaciones esto es útil? Hay al menos dos situaciones comúnes en donde este modo es necesario. Una es para permitir la comunicación entre dos dispositivos que operan a distintos voltajes. Por ejemplo entre el STM32F103 (3.3V) y un integrado que opere a 1.8V:
+
+<p align="center">
+<img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/Open_Drain_STM32.png" width="500">
 <p>
 
