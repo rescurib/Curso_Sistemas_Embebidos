@@ -62,3 +62,4 @@ En modo open drain al P-MOS se le envía alto todo el tiempo de manera que VDD e
 <img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/Open_Drain_STM32.png" width="500">
 <p>
 
+El segundo uso más común de este modo es en protocolos de comunicación de cable único. En [este](https://www.youtube.com/watch?v=j9yx8LOslng) video subtitulado del canal del Texas Instruments se explica muy bien el uso de este modo en las implementaciones del protocolo I2C. 
