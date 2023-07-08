@@ -27,7 +27,7 @@ En la pag. 163 del RM0008 se muestra el siguiente diagrama de las configuración
 <img src="https://drive.google.com/uc?export=view&id=1a5fwK4xVnd_LMzWpixnK-jPWmJgBvelU" width="700">
 <p>
 
-Podemos observar que tenemos la opición de activar/desactivar resistores pull-up y pull-down. El modo pull-up nos permite asegurar que la entrada tendra un buen nivel de alto lógico. Esto es útil cuando estamos leyendo una señal digital que venga desde un circuito que no tenga el suficiente nivel voltaje. El pull-down nos es util cuando el circuito que estamos leyendo nos da una lectura de tierra en nivel bajo. El triggrt Schmitt es un circuito que nos permite tener lecturas digitales robustas al ruido (subidas y bajadas de voltaje aleatorias). En [este video](https://www.youtube.com/watch?v=Z4pt9Abn3dY) se explica de forma clara su funcionamiento. Si requieren profundizar en el tema puede consultar la pag. 809 del Pincipios de Electrónica de Malvino-Bates. La configuración se selecciona con el registro **GPIOx_CRL** (x=A..G) [pag. 171, RM0008].
+Podemos observar que tenemos la opición de activar/desactivar resistores pull-up y pull-down. El modo pull-up nos permite asegurar que la entrada tendra un buen nivel de alto lógico. Esto es útil cuando estamos leyendo una señal digital que venga desde un circuito que no tenga el suficiente nivel voltaje. El pull-down nos es util cuando el circuito que estamos leyendo nos da una lectura de tierra en nivel bajo. El triggrt Schmitt es un circuito que nos permite tener lecturas digitales robustas al ruido (subidas y bajadas de voltaje aleatorias). En [este video](https://www.youtube.com/watch?v=Z4pt9Abn3dY) se explica de forma clara su funcionamiento. Si requieren profundizar en el tema puede consultar la pag. 809 del Principios de Electrónica de Malvino-Bates. La configuración se selecciona con los registros **GPIOx_CRL** y **GPIOx_CRH** (x=A..G) [pag. 171, RM0008]. Revisar tambien la tabla 20 de la pag. 161.
 
 Un dato que puede ser útil a la hora de identificar fallas son los valores de voltaje que delimitan el 0 y el 1 lógicos. En la tabla 35, pag. 61 de DS5319 podemos consultar los valores para el voltaje minimo de nivel alto de entrada (V_IH) y el voltaje máximo de nivel bajo de entrada (V_IL), los cuales son:
 * V_IH = 0.65*VDD | 2.145V con VDD = 3.3V
@@ -63,3 +63,15 @@ En modo open drain al P-MOS se le envía alto todo el tiempo de manera que VDD e
 <p>
 
 El segundo uso más común de este modo es en protocolos de comunicación de cable único. En [este](https://www.youtube.com/watch?v=j9yx8LOslng) video subtitulado del canal del Texas Instruments se explica muy bien el uso de este modo en las implementaciones del protocolo I2C. 
+
+### Registros de configuración y operación
+Cada puerto del los STM32F10x tiene asociados 7 registros:
+
+* CRL: configuration register low
+* CRH: configuration register high
+* IDR: input data register
+* ODR: output data register
+* BSRR: bit set/reset register
+* BRR: bit reset register
+* LCKR: configuration lock register
+
