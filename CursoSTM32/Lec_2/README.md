@@ -135,9 +135,9 @@ typedef struct
 	volatile uint32_t LCKR;//Configuration Lock Register (pag. 174)
 }GPIO_RegDef;
 
-#define GPIOA (GPIO_RegDef*) PORTA_BASE
-#define GPIOB (GPIO_RegDef*) PORTB_BASE
-#define GPIOC (GPIO_RegDef*) PORTC_BASE
-#define GPIOD (GPIO_RegDef*) PORTD_BASE
-#define GPIOE (GPIO_RegDef*) PORTE_BASE
+#define GPIOA ((GPIO_RegDef*)PORTA_BASE)
+#define GPIOB ((GPIO_RegDef*)PORTB_BASE)
+#define GPIOC ((GPIO_RegDef*)PORTC_BASE)
+#define GPIOD ((GPIO_RegDef*)PORTD_BASE)
+#define GPIOE ((GPIO_RegDef*)PORTE_BASE)
 ```
