@@ -11,11 +11,46 @@ Lo sé, al principio parece una complicación innecesaria el tener que habilitar
 <img src="https://drive.google.com/uc?export=view&id=1Z-4J_d_h0YRNMuBG7lTNu0DV098r2NiS" width="500">
 <p>
 
-El reloj debe habilitarse individualmente para cada puerto. Por esta razón necesitamos hablar del modulo RCC (*Reset and Clock Control*). La documentación de este módulo comienza en la página 123 del RM0008. Es un módulo bastante complejo. Por ahora nos quedaremos con las configuraciones por defecto (aprenderemos a configurar el reloj del sistema más adelante) y nos concentraremos en la habilitación de los relojes periféricos. El registro que necesitamos para habilitar los relojes periféricos de los módulos GPIO es el *APB2 peripheral clock enable register* (**RCC_APB2ENR**) y la docuemntación se encuentra en la página 146:
+El reloj debe habilitarse individualmente para cada puerto. Por esta razón necesitamos hablar del modulo RCC (*Reset and Clock Control*). La documentación de este módulo comienza en la página 123 del RM0008. Es un módulo bastante complejo. Por ahora nos quedaremos con las configuraciones por defecto (aprenderemos a configurar el reloj del sistema más adelante) y nos concentraremos en la habilitación de los relojes periféricos. El registro que necesitamos para habilitar los relojes periféricos de los módulos GPIO es el *APB2 peripheral clock enable register* (**RCC_APB2ENR**) y la documentación se encuentra en la página 146:
 
 <p align="center">
 <img src="https://drive.google.com/uc?export=view&id=1PuvGeLJ-usLjvQjbCLa-AOCOw7SM2ai8" width="700">
 <p>
+
+Usando la documentación del modulo en el RM0003 podemos crear las siguientes estructuras y definiciones en C:
+
+```C
+// ----------------- Relojes ---------------------
+// Dirección (Datasheet, pag. 33, Figure 11)
+#define RCC_BASE 0x40021000U
+
+// Estructura de registros
+// (Reference Manual (RM0008), Table 19, pags. 156-158)
+typedef struct
+{
+	volatile uint32_t CR;
+	volatile uint32_t CFGR;
+	volatile uint32_t CIR;
+	volatile uint32_t APB2RSTR;
+	volatile uint32_t APB1RSTR;
+	volatile uint32_t AHBENR;
+	volatile uint32_t APB2ENR;
+	volatile uint32_t APB1ENR;
+	volatile uint32_t BDCR;
+	volatile uint32_t CSR;
+	volatile uint32_t AHBSTR;
+	volatile uint32_t CFGR2;
+}RCC_RegDef;
+
+#define RCC   ((RCC_RegDef*)RCC_BASE)
+//------------------------------------------------
+```
+Ejemplo, habilitar el reloj para el Puerto C (en donde esta el led de la Blue Pill):
+
+```C
+/* Habilitar reloj en GPIOC */
+ RCC->APB2ENR |= (1<<4); // Setear bit 4: IOPCEN (pag. 146)
+```
 
 ## Modos de Entrada/Salida
 La segunda cosa que suele abrumar a los que comienzan con STM32 son los multiples modos de configuración de las entradas y salidas. Comenzaremos a hablar de todos los detalles y características de los pines I/O.
