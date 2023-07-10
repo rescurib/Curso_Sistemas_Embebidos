@@ -141,3 +141,20 @@ typedef struct
 #define GPIOD ((GPIO_RegDef*)PORTD_BASE)
 #define GPIOE ((GPIO_RegDef*)PORTE_BASE)
 ```
+Ejemplo: Configuración del pin PC13 como salida con Push-Pull:
+
+```C
+/* Configurar PC13 (LED) como salida push-pull */
+GPIOC->CRH |=  (1<<20); // MODE13[1:0]: Salida, vel. max. 10MHz (pag. 172)
+GPIOC->CRH &= ~(0b11<<22); // CNF13[1:0]: Push-Pull (pag. 172)
+```
+Encendido y apagado:
+
+```C
+GPIOC->ODR |= 1<<13;    // Setear PC13
+GPIOC->ODR &= ~(1<<13); // Limpiar PC13
+```
+
+## Prácticas
+* **Práctica 2.0: Programa *mínimo* para blinkear el Led del Blue Pill**. Esta práctica está basada en el ejemplo de la sección 20.2 *The Really Minimal STM32 Application* de *Mastering STM32* de Carmine Noviello en la que se usa STM32Cube IDE pero sin útilizar ningun wizard que genere ningun código de startup. Aunque la aplicación es sencilla, se requiere entender lo escencial del funcionamiento del proceso de construción del toolchain arm-gcc.
+* **Práctica 2.1: Botones y técnicas anti-rebote**. En esta práctica si usarémos el wizard de proyecto STM32 y mostrarémos el uso las librerías HAL de ST para GPIO. Lo imparte en esta práctica será hablar de las implementaciones basadas en programación orientada a objetos en C y técnicas para mitigar el ruido de lectura en los botones.
