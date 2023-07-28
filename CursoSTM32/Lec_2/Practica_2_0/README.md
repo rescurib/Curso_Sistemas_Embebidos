@@ -11,3 +11,5 @@ Para este programa vamos a necesitar 3 archivos:
 * main.c
 * main.h
 * LinkerScript.ld
+
+Creamos los archivos en blanco en File->New->Source File, File->New->Header File y File->New->File from Template, respectivamente. 
