@@ -2,7 +2,7 @@
  * main.c
  *
  *  Created on: 9 jul 2023
- *      Author: Rodolfo Escobar (basado en)
+ *  Author: Rodolfo Escobar (basado en ejemplo Carmine Noviello)
  */
 
 #include "main.h"
