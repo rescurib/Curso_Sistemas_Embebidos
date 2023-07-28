@@ -4,22 +4,22 @@ MEMORY
 {
  FLASH (rx) : ORIGIN = 0x08000000, LENGTH = 64K
  SRAM (xrw) : ORIGIN = 0x20000000, LENGTH = 20K
- }
+}
 
 ENTRY(main)
 
-/* output sections */
+/* Secciones de salida */
 SECTIONS
 {
-   /* Programar códifo en FLASH */
+   /* Poner código en FLASH */
    .text : ALIGN(4)
    {
      *(.isr_vector) /* Tabla vectorial */
-     *(.text)       /* Codigo del programa */
+     *(.text)       /* Código del programa */
      KEEP(*(.isr_vector))
    } >FLASH
 
-   /* Initialized global and static variables into SRAM */
+   /* Poner variables globales y estáticas inicializadas en SRAM */
    .data :
    {
      *(.data)
