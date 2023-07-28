@@ -15,7 +15,7 @@
 #define SRAM_SIZE 20*1024 // STM32F103C8 tiene 20 KB de RAM
 #define SRAM_END (SRAM_BASE + SRAM_SIZE)
 
-/* Tabla vectorial (vector table) mínima */
+/* Tabla de vectores (vector table) mínima */
 uint32_t *vector_table[] __attribute__((section(".isr_vector"))) = {
 (uint32_t *)SRAM_END, // stack pointer inicial
 (uint32_t *)main      // función main como Reset_Handler
