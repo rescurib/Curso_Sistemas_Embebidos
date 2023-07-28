@@ -2,7 +2,7 @@
  * main.h
  *
  *  Created on: 9 jul 2023
- *      Author: rescu
+ *  Author: Rodolfo Escobar (basado en ejemplo Carmine Noviello)
  */
 
 #ifndef MAIN_H_
@@ -63,8 +63,8 @@ typedef struct
 #define GPIOD ((GPIO_RegDef*)PORTD_BASE)
 #define GPIOE ((GPIO_RegDef*)PORTE_BASE)
 
-#endif /* MAIN_H_ */
-
 /* Funciones de usuario */
 int main(void);
 void delay(uint32_t count);
+
+#endif /* MAIN_H_ */
