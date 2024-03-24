@@ -149,6 +149,7 @@ GPIOC->CRH |=  (1<<20); // MODE13[1:0]: Salida, vel. max. 10MHz (pag. 172)
 GPIOC->CRH &= ~(0b11<<22); // CNF13[1:0]: Push-Pull (pag. 172)
 ```
 Encendido y apagado:
+
 **NOTA**: El led en el board de la Blue Pill esta implementado como activo en bajo.
 ```C
 GPIOC->ODR &= ~(1<<13); // Limpiar PC13 (encender led)
