@@ -27,11 +27,21 @@ Esta arquitectura de ejemplo tandra instrucciones de 12 bits y manejará datos d
 <img src="https://drive.google.com/uc?export=view&id=1NjGBa14ZjMFkQe5IUW2YNUp745HC9bTV" width="500">
 <p>
 
-Ejecución de intrucciones
+Esta implementación maneja operandos y resultados de 8 bits (muy limitada, pero es suficiente para ejemplificar la idea del modelo). La ALU solo puede tomar operanodos y escribir el resultado directamente en los registros (ver diagrama del modelo de carga-almacenamiento). Los registros son una pequeña unidad de memoria, a modo de una cajonera para operaciones:
+
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=1iN4L97yMrYPv-Pq5MonReqC6Br3rpe5T" width="300">
+<p>
+
+Ahora vayamos al programa. Un programa es simplemente un conjunto de números binarios que el procesador traduce a acciones concretas. En esta arqitectura de juguete tenemos 3 tipos de instrucciones. Tipo A: operación, Tipo B: carga-almacenamiento y Tipo C: salto. 
+
+Comencemos con un ejemplo de ejecución una **Tipo A** (los valores de los registros estan previamente inicializados por una secuencias de instrucciones Tipo B que veremos más adelante):
+
 <p align="center">
 <img src="https://drive.google.com/uc?export=view&id=1dqk-is8mTuTmddhIbBJvISoL1b19roWK" width="700">
 <p>
-
+  
+Este ejemplo realiza una operación de suma. Noten que al ser uno de los operandos 0, esta operación es equivalente a un *movimiento* de dato entre registros. 
 
 
 
