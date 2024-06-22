@@ -41,7 +41,7 @@ Comencemos con un ejemplo de ejecución una **Tipo A** (los valores de los regis
 <img src="https://drive.google.com/uc?export=view&id=1dqk-is8mTuTmddhIbBJvISoL1b19roWK" width="700">
 <p>
   
-Este ejemplo realiza una operación de suma. Noten que al ser uno de los operandos 0, esta operación es equivalente a un *movimiento* de dato entre registros. 
+Este ejemplo realiza una operación de suma. Al ser uno de los operandos 0, esta operación es equivalente a un *movimiento* de dato entre registros. Esta es una observación importante porque en arquitecturas limitadas como esta, es necesario ingeniarse secuencias de instrucciones que realicen operaciones/tareas que no existan de forma explícita en el conjunto de instrucciones. 
 
 
 
