@@ -1,5 +1,6 @@
 # Lección 1: Crash-Course de procesadores y layout de memoria ARM Cortex-M
 
+## Máquinas de Carga-Almacenamiento
 Si quitamos los detalles de implementación, todas las computadoras son iguales. Cambian en tamaño, frecuencia de operación, arquitectura y un largo etc, pero en esencia, funcionan de la misma manera. Ver a las computadores con estos lentes se llama modelación abstracta. Estos modelos se ajustan a diferentes necesidades teóricas y prácticas. Por ejemplo, en los años 30´s (décadas antes de las computadoras electrónicas, Alan Turing necesitaba un modelo computacional abstracto para responder a la pregunta **¿hay cosas qué las computadoras no puedan hacer?**. Creó entonces lo que conocemos ahora como Máquina Turing ([aquí](https://youtu.be/iaXLDz_UeYY) hay una buena explicación del canal *Derivando*). Pero la Máquina de Turing es demasiado abstracta para nuestros propósitos. Necesitamos un punto medio. Algo suficientemente abstracto para olvidarnos de las características especificas de cada procesador pero lo suficientemente concreto para manejar conceptos útiles para la programación como memorias y direcciones. Aquí es dónde entra la **Load-Store Machine** (Máquina de Carga-Almacenamiento).
 
 <p align="center">
@@ -18,5 +19,21 @@ Una Máquina de Carga-Almacenamiento consiste una unidad de control que se encar
 Restricciones:
 * Los resultados de las operaciones aritméticas o lógicas no pueden colocarse directamente en la memoria principal, sólo en elementos de los registros.
 
-Aunque pueda parecer nada evidente, este modelo puede hacer lo que cualquier sistema de cómputo puede hacer. A diferencia de la Máquina de Turing, este modelo es directamente concretable a una arquitectura de carga-almacenamiento como lo son ARM o RISC-V. Pero antes de eso vamos a revisar en el siguiente video una arquitectura de juguete que me he inventado para explicar de forma clara como funcionan los procesadores:
+Este modelo puede hacer lo que cualquier sistema de cómputo puede hacer. A diferencia de la Máquina de Turing, este modelo es directamente concretable a una arquitectura de carga-almacenamiento como lo son ARM o RISC-V. Pero antes de eso vamos a revisar una arquitectura de juguete que me he inventado para explicar de forma clara como funcionan los procesadores:
+
+### Arquitectura de simple de 8 bits
+Esta arquitectura de ejemplo tandra instrucciones de 12 bits y manejará datos de 8 bits. Comencemos con la ALU:
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=1NjGBa14ZjMFkQe5IUW2YNUp745HC9bTV" width="500">
+<p>
+
+Ejecución de intrucciones
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=1dqk-is8mTuTmddhIbBJvISoL1b19roWK" width="700">
+<p>
+
+
+
+
+
   
