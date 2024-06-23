@@ -1,4 +1,4 @@
-# Lección 1: Crash-Course de procesadores y layout de memoria ARM Cortex-M
+# Lección 1: Crash-Course de procesadores y layout de memoria ARM Cortex-M3
 
 ## Máquinas de Carga-Almacenamiento
 Si quitamos los detalles de implementación, todas las computadoras son iguales. Cambian en tamaño, frecuencia de operación, arquitectura y un largo etc, pero en esencia, funcionan de la misma manera. Ver a las computadores con estos lentes se llama modelación abstracta. Estos modelos se ajustan a diferentes necesidades teóricas y prácticas. Por ejemplo, en los años 30´s (décadas antes de las computadoras electrónicas, Alan Turing necesitaba un modelo computacional abstracto para responder a la pregunta **¿hay cosas qué las computadoras no puedan hacer?**. Creó entonces lo que conocemos ahora como Máquina Turing ([aquí](https://youtu.be/iaXLDz_UeYY) hay una buena explicación del canal *Derivando*). Pero la Máquina de Turing es demasiado abstracta para nuestros propósitos. Necesitamos un punto medio. Algo suficientemente abstracto para olvidarnos de las características especificas de cada procesador pero lo suficientemente concreto para manejar conceptos útiles para la programación como memorias y direcciones. Aquí es dónde entra la **Load-Store Machine** (Máquina de Carga-Almacenamiento).
@@ -22,18 +22,18 @@ Restricciones:
 Este modelo puede hacer lo que cualquier sistema de cómputo puede hacer. A diferencia de la Máquina de Turing, este modelo es directamente concretable a una arquitectura de carga-almacenamiento como lo son ARM o RISC-V. Pero antes de eso vamos a revisar una arquitectura de juguete que me he inventado para explicar de forma clara como funcionan los procesadores:
 
 ### Arquitectura de simple de 8 bits
-Esta arquitectura de ejemplo tandra instrucciones de 12 bits y manejará datos de 8 bits. Comencemos con la ALU:
+Esta arquitectura de ejemplo tendra instrucciones de 12 bits y manejará datos de 8 bits. Comencemos con la ALU:
 <p align="center">
 <img src="https://drive.google.com/uc?export=view&id=1NjGBa14ZjMFkQe5IUW2YNUp745HC9bTV" width="500">
 <p>
 
-Esta implementación maneja operandos y resultados de 8 bits (muy limitada, pero es suficiente para ejemplificar la idea del modelo). La ALU solo puede tomar operanodos y escribir el resultado directamente en los registros (ver diagrama del modelo de carga-almacenamiento). Los registros son una pequeña unidad de memoria, a modo de una cajonera para operaciones:
+Esta implementación maneja operandos y resultados de 8 bits (muy limitada, pero es suficiente para ejemplificar la idea del modelo). La ALU solo puede tomar operanodos y escribir el resultado directamente en los registros (ver diagrama del modelo de carga-almacenamiento). Los registros son una pequeña unidad de memoria, a modo de una cajonera para el módulo de control:
 
 <p align="center">
 <img src="https://drive.google.com/uc?export=view&id=1iN4L97yMrYPv-Pq5MonReqC6Br3rpe5T" width="300">
 <p>
 
-Ahora vayamos al programa. Un programa es simplemente un conjunto de números binarios que el procesador traduce a acciones concretas. En esta arqitectura de juguete tenemos 3 tipos de instrucciones. Tipo A: operación, Tipo B: carga-almacenamiento y Tipo C: salto. 
+Ahora vayamos al programa. Un programa es simplemente un conjunto de números binarios que el procesador traduce a acciones concretas. En esta arqitectura de juguete tenemos 3 tipos de instrucciones. Tipo A: operación, Tipo B: carga-almacenamiento y salto. 
 
 Comencemos con un ejemplo de ejecución una **Tipo A** (los valores de los registros estan previamente inicializados por una secuencias de instrucciones Tipo B que veremos más adelante):
 
@@ -43,7 +43,48 @@ Comencemos con un ejemplo de ejecución una **Tipo A** (los valores de los regis
   
 Este ejemplo realiza una operación de suma. Al ser uno de los operandos 0, esta operación es equivalente a un *movimiento* de dato entre registros. Esta es una observación importante porque en arquitecturas limitadas como esta, es necesario ingeniarse secuencias de instrucciones que realicen operaciones/tareas que no existan de forma explícita en el conjunto de instrucciones. 
 
+Las instruciones de Tipo B para las operaciones de carga y almacenamiento tienen los siguientes campos de bits:
 
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=1JDBeWwqiCjomtwIrB0XY74DgMoE3ESsV" width="500">
+<p>
 
+La siguiente animación muestra la ejecución de esta secuencia de instrucciones:
 
-  
+1. Cargar el contenido de la dirección 101100 de la memoria principal al registro 0.
+2. Cargar el contenido de la dirección 101101 de la memoria principal al registro 1.
+3. Sumar registro 9 con registro 1 y poner el resultado en el registro 2.
+4. almacenar el registro 2 en la dirección 101101 de la memoria principal.
+
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=16TdFB5rAwYTOzWd9ITlYdMnceaN0dEir" width="700">
+<p>
+
+La secuencia de intrucciones del programa anterior esta almacenado en la memoria de programa. Cada instrucción ocupa una dirección especifica en ella. Para nuestro ejemplo, la memoria de programa se vería así:
+
+| Dirección | Instrucción |
+|:---------:|:-----------:|
+|    0x0    |101000101100 |
+|    0x1    |101001101101 | 
+|    0x2    |011000001010 |
+|    0x3    |110010101110 |
+
+La idea fundamental aquí es: las instrucciones son *sólo números* en otra memoria. La diferencia esta en la interpretación de estos por parte del módulo de control. El orden de ejecución esta regulado por un elemento interno al modulo de control llamado **contador de programa**. Inicialmente comienza en cero y va incrementando en +1 en este modelo simple. Podemos modificar el valor del contador de programa con la instrucción de salto que también es de Tipo B:
+
+|3 bits| 3 bits      | 6 bits |
+|:----:|:-----------:|:------:|
+| 111  | Dirección de registro | Dirección de salto en memoria de programa |
+
+Cuando se ejecuta instrucción, el contador de programa se mueve la dirección especifica solo si el registro leido contiene un "00000000". En caso contrario, el contador no cambia de valor. Se deja como ejercicio escribir una secuencia de instrucciones de este modelo de ejemplo para ordenar la siguiente lista en la memoria principal [5,3,1,6]. 
+
+### Bibliografía 
+El objetivo de este modelo de juguete es construir una intución de los fundamentos de una máquina de carga-almacenemiento. Si has entendido todo hasta este punto, estas listo para aprender como funcionan los procesadores RISC del mundo real:
+
+* *Computer Organization and Design*, RISC-V Edition, Patterson-Henessey
+  - Ch. 2: Instructions: Language of the Computer
+  - Ch. 3: The Procesor
+* *The Definitive Guide to ARM Cortex-M3 and Cortex-M4 Processors*, 3ED, Joseph Yiu
+  - Ch. 4: Architecture
+  - Ch. 5: Instruction Set
+    
+## Layout de memoria ARM Cortex-M3
