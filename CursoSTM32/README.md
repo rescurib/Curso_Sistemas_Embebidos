@@ -5,7 +5,7 @@ El objetivo de este curso es dar las herramientas fundamentales para el desarrol
 ## Contenido:
 
 * [**Lección 0**: ARM Cortex-M y microcontrotroladores STM32](https://github.com/rescurib/Curso_Sistemas_Embebidos/tree/main/CursoSTM32/Lec_0)
-* **Lección 1**: Crash-Course de procesadores y layout de memoria ARM Cortex-M
+* [**Lección 1**: Crash-Course de procesadores y layout de memoria ARM Cortex-M](https://github.com/rescurib/Curso_Sistemas_Embebidos/tree/main/CursoSTM32/Lec_1)
 * **Lección 2**: GPIO
 * **Lección 3**: Temporizadores y árbol de reloj
 * **Lección 4**: Interrupciones
