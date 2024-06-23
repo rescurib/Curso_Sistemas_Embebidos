@@ -125,4 +125,4 @@ MEMORY
  SRAM (xrw) : ORIGIN = 0x20000000, LENGTH = 20K
 }
 ```
-Más adelate explicaré como funcionan estos scripts.
+Más adelate explicaré como funcionan estos scripts. Por ahora ya estamos listos para la siguiente lección: manejo de GPIOS.
