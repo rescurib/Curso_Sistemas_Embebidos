@@ -116,7 +116,7 @@ Los accesos de carga-almacenamiento pueden relizarse almacenando una dirección 
 <img src="https://drive.google.com/uc?export=view&id=1uU8rWdbDEns2DtgpSQ57xA0fQGh9MCOC" width="800">
 <p>
 
-En los microcontoladores basados en ARM, sólo una pequeña parte de espacio de memoria esta implementado físicamente pero los valores de las direcciones base son respetadas. Por ejemplo, las regiones de memoria válidas para la Flash y la SRAM para un STM32F103C8 se definen de esta manera en un script de linker:
+En los microcontoladores basados en ARM, sólo una pequeña parte de espacio de memoria esta implementado físicamente pero los valores de las direcciones que limitan las zonas son respetadas. Por ejemplo, las regiones de memoria válidas para la Flash y la SRAM para un STM32F103C8 se definen de esta manera en un script de linker:
 
 ```
 MEMORY
