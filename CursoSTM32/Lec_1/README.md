@@ -1,4 +1,4 @@
-# Lección 1: Crash-Course de procesadores y mapa de memoria ARM Cortex-M3
+# Lección 1: Crash-Course de procesadores y mapa de memoria ARM Cortex-M
 
 ## Máquinas de Carga-Almacenamiento
 Si quitamos los detalles de implementación, todas las computadoras son iguales. Cambian en tamaño, frecuencia de operación, arquitectura y un largo etc, pero en esencia, funcionan de la misma manera. Ver a las computadores con estos lentes se llama modelación abstracta. Estos modelos se ajustan a diferentes necesidades teóricas y prácticas. Por ejemplo, en los años 30´s (décadas antes de las computadoras electrónicas, Alan Turing necesitaba un modelo computacional abstracto para responder a la pregunta **¿hay cosas qué las computadoras no puedan hacer?**. Creó entonces lo que conocemos ahora como Máquina Turing ([aquí](https://youtu.be/iaXLDz_UeYY) hay una buena explicación del canal *Derivando*). Pero la Máquina de Turing es demasiado abstracta para nuestros propósitos. Necesitamos un punto medio. Algo suficientemente abstracto para olvidarnos de las características especificas de cada procesador pero lo suficientemente concreto para manejar conceptos útiles para la programación como memorias y direcciones. Aquí es dónde entra la **Load-Store Machine** (Máquina de Carga-Almacenamiento).
@@ -110,11 +110,19 @@ En la práctica la mayor parte del tiempo de depuración profunda sólo prestar�
 
 Los procesadores Cortex-M3 usan la microarquitectura ARMv7-M. Los detalles de sus instrucciones se pueden encontrar en el [ARMv7-M Architecture Reference Manual](https://developer.arm.com/documentation/ddi0403/latest)
 
-Los accesos de carga-almacenamiento pueden relizarse almacenando una dirección base (de la memoria principal) en un registro y un *offset* en otro registro (o también como un valor inmediato en la instrucción). Ya que los registros son de 32 bits, el procesador puede cargar o almacenar bytes en un espacio de memoria de 32GB. Este espacio de memoria se divide en varias secciones segun su función. Esto es lo que se conoce como Mapa de Memoria.  
+Los accesos de carga-almacenamiento pueden relizarse almacenando una dirección base (de la memoria principal) en un registro y un *offset* en otro registro (o también como un valor inmediato en la instrucción). Ya que los registros son de 32 bits, el procesador puede cargar o almacenar bytes en un espacio de memoria de 32GB. Este espacio de memoria se divide en varias secciones segun su función. Esto es lo que se conoce como **Mapa de Memoria**: 
 
 <p align="center">
-<img src="https://drive.google.com/uc?export=view&id=1uU8rWdbDEns2DtgpSQ57xA0fQGh9MCOC" width="700">
+<img src="https://drive.google.com/uc?export=view&id=1uU8rWdbDEns2DtgpSQ57xA0fQGh9MCOC" width="800">
 <p>
 
-En los microcontoladores basados en ARM, sólo una pequeña parte de espacio de memoria esta implementado físicamente pero los valores de las direcciones base son respetadas. 
+En los microcontoladores basados en ARM, sólo una pequeña parte de espacio de memoria esta implementado físicamente pero los valores de las direcciones base son respetadas. Por ejemplo, las regiones de memoria válidas para la Flash y la SRAM para un STM32F103C8 se definen de esta manera en un script de linker:
 
+```
+MEMORY
+{
+ FLASH (rx) : ORIGIN = 0x08000000, LENGTH = 64K
+ SRAM (xrw) : ORIGIN = 0x20000000, LENGTH = 20K
+}
+```
+Más adelate explicaré como funcionan estos scripts.
