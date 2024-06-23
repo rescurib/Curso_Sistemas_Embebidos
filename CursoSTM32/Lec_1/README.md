@@ -1,4 +1,4 @@
-# Lección 1: Crash-Course de procesadores y layout de memoria ARM Cortex-M3
+# Lección 1: Crash-Course de procesadores y mapa de memoria ARM Cortex-M3
 
 ## Máquinas de Carga-Almacenamiento
 Si quitamos los detalles de implementación, todas las computadoras son iguales. Cambian en tamaño, frecuencia de operación, arquitectura y un largo etc, pero en esencia, funcionan de la misma manera. Ver a las computadores con estos lentes se llama modelación abstracta. Estos modelos se ajustan a diferentes necesidades teóricas y prácticas. Por ejemplo, en los años 30´s (décadas antes de las computadoras electrónicas, Alan Turing necesitaba un modelo computacional abstracto para responder a la pregunta **¿hay cosas qué las computadoras no puedan hacer?**. Creó entonces lo que conocemos ahora como Máquina Turing ([aquí](https://youtu.be/iaXLDz_UeYY) hay una buena explicación del canal *Derivando*). Pero la Máquina de Turing es demasiado abstracta para nuestros propósitos. Necesitamos un punto medio. Algo suficientemente abstracto para olvidarnos de las características especificas de cada procesador pero lo suficientemente concreto para manejar conceptos útiles para la programación como memorias y direcciones. Aquí es dónde entra la **Load-Store Machine** (Máquina de Carga-Almacenamiento).
@@ -87,4 +87,34 @@ El objetivo de este modelo de juguete es construir una intución de los fundamen
   - Ch. 4: Architecture
   - Ch. 5: Instruction Set
     
-## Layout de memoria ARM Cortex-M3
+## Mapa de memoria ARM Cortex-M3
+Espero que hayas hecho las lecturas recomendadas porque ahora verémos el modelo carga-almacenamiento para la arquitectura ARM Cortex-M. 
+
+La lista completa de registros para esta arquitectura es la siguiente:
+
+| Nombre del Registro | Descripción                                                                 |
+|---------------------|-----------------------------------------------------------------------------|
+| R0-R12              | Registros de propósito general utilizados para varias manipulaciones y operaciones de datos. |
+| SP (R13)            | Puntero de Pila, usado para operaciones de pila.                            |
+| LR (R14)            | Registro de Enlace, contiene la dirección de retorno para llamadas a funciones. |
+| PC (R15)            | Contador de Programa, apunta a la siguiente instrucción a ejecutar.         |
+| APSR                | Registro de Estado del Programa de Aplicación, contiene el estado actual del programa. |
+| IPSR                | Registro de Estado del Programa de Interrupción, contiene el número de tipo de excepción. |
+| EPSR                | Registro de Estado del Programa de Ejecución, contiene información del estado de ejecución. |
+| PRIMASK             | Registro de Máscara de Interrupción, deshabilita todas las excepciones excepto NMI cuando está establecido. |
+| BASEPRI             | Registro de Máscara de Prioridad Base, define el umbral de prioridad para excepciones. |
+| FAULTMASK           | Registro de Máscara de Fallos, deshabilita todas las excepciones cuando está establecido. |
+| CONTROL             | Registro de Control, cambia el nivel de privilegio y la pila utilizada.     |
+
+En la práctica la mayor parte del tiempo de depuración profunda sólo prestarás atención a los registros R0-R15 pero es bueno conocerlos todos porque eventualmente te toparás con problemas complejos que requerirán revisar el resto de los registros (tambien llamados Registros Especiales). Para una referencia completa a todos los registros revisa la Sección 4.2.2 *Registers* de *The Definitive Guide to ARM Cortex-M3 and Cortex-M4 Processors*.
+
+Los procesadores Cortex-M3 usan la microarquitectura ARMv7-M. Los detalles de sus instrucciones se pueden encontrar en el [ARMv7-M Architecture Reference Manual](https://developer.arm.com/documentation/ddi0403/latest)
+
+Los accesos de carga-almacenamiento pueden relizarse almacenando una dirección base (de la memoria principal) en un registro y un *offset* en otro registro (o también como un valor inmediato en la instrucción). Ya que los registros son de 32 bits, el procesador puede cargar o almacenar bytes en un espacio de memoria de 32GB. Este espacio de memoria se divide en varias secciones segun su función. Esto es lo que se conoce como Mapa de Memoria.  
+
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=1uU8rWdbDEns2DtgpSQ57xA0fQGh9MCOC" width="700">
+<p>
+
+En los microcontoladores basados en ARM, sólo una pequeña parte de espacio de memoria esta implementado físicamente pero los valores de las direcciones base son respetadas. 
+
