@@ -108,7 +108,7 @@ La lista completa de registros para esta arquitectura es la siguiente:
 
 En la práctica la mayor parte del tiempo de depuración profunda sólo prestarás atención a los registros R0-R15 pero es bueno conocerlos todos porque eventualmente te toparás con problemas complejos que requerirán revisar el resto de los registros (tambien llamados Registros Especiales). Para una referencia completa a todos los registros revisa la Sección 4.2.2 *Registers* de *The Definitive Guide to ARM Cortex-M3 and Cortex-M4 Processors*.
 
-Los procesadores Cortex-M3 usan la microarquitectura ARMv7-M. Los detalles de sus instrucciones se pueden encontrar en el [ARMv7-M Architecture Reference Manual](https://developer.arm.com/documentation/ddi0403/latest)
+Los procesadores Cortex-M3 usan la microarquitectura ARMv7-M. Los detalles de sus instrucciones se pueden encontrar en el [ARMv7-M Architecture Reference Manual](https://developer.arm.com/documentation/ddi0403/latest) Aquí un hay video que nos da una guía sobre como navegar este documento: ["How to read the ARMv7-M manual"](https://www.youtube.com/watch?v=wKZN4TisfEQ)
 
 Los accesos de carga-almacenamiento pueden relizarse almacenando una dirección base (de la memoria principal) en un registro y un *offset* en otro registro (o también como un valor inmediato en la instrucción). Ya que los registros son de 32 bits, el procesador puede cargar o almacenar bytes en un espacio de memoria de 32GB. Este espacio de memoria se divide en varias secciones segun su función. Esto es lo que se conoce como **Mapa de Memoria**: 
 
@@ -116,7 +116,7 @@ Los accesos de carga-almacenamiento pueden relizarse almacenando una dirección 
 <img src="https://drive.google.com/uc?export=view&id=1uU8rWdbDEns2DtgpSQ57xA0fQGh9MCOC" width="800">
 <p>
 
-En los microcontoladores basados en ARM, sólo una pequeña parte de espacio de memoria esta implementado físicamente pero los valores de las direcciones que limitan las zonas son respetadas. Por ejemplo, las regiones de memoria válidas para la Flash y la SRAM para un STM32F103C8 se definen de esta manera en un script de linker:
+En los microcontroladores basados en ARM, solo una pequeña parte del espacio de memoria está implementada físicamente; sin embargo, se mantienen los valores de las direcciones que delimitan las áreas mencionadas. Por ejemplo, las regiones de memoria válidas para la Flash y la SRAM para un STM32F103C8 se definen de esta manera en un script de linker:
 
 ```
 MEMORY
