@@ -75,10 +75,10 @@ Otros dos registros muy importantes son:
 * **Port configuration register low** (GPIOx_CRL) (x=A..G), pag. 171 (RM0008).
 * **Port configuration register high** (GPIOx_CRH) (x=A..G), pag. 172 (RM008).
 
-Ejemplo: Configuración del pin PB4 como entrada con pull-up
+**Ejemplo**: Configuración del pin PB4 como entrada con pull-up
 ```C
-(Reference Manual (RM0008), Tabla 3, pag. 51)
-#define PORTB_BASE			0x40010C00U
+// (Reference Manual (RM0008), Tabla 3, pag. 51)
+#define PORTB_BASE    0x40010C00U
 
 // Estructura de registros GPIO
 // (Reference Manual (RM0008), Sec. 9.2, pag. 171)
@@ -106,14 +106,12 @@ int main()
     GPIOB->CRL |=  (0b1000 << (pin_cnf_size * 4)); // CNF = 10 (Pull-up), MODE = 00 (Input)
 
     // Activar la resistencia pull-up
-    GPIOB->ODR |= (1 << 4);          // Establecer el pin a HIGH para activar pull-up
+    GPIOB->ODR |= (1 << 4);   // Establecer el pin a HIGH para activar pull-up (Table 20, pag. 161)
 
     while (1) {
         // Bucle infinito
     }
 }
-
-
 ```
 
 ### Salidas digitales
