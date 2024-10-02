@@ -47,7 +47,7 @@ typedef struct
 #define RCC   ((RCC_RegDef*)RCC_BASE)
 //------------------------------------------------
 ```
-**NOTA**: Como recordatorio o si estás siguiendo mi guía, los conceptos que se estan usando en el código anterior son *estructuras*, *punteros* y *casteo*. Estos temas están en *C in a Nutshell* 2Ed:
+**NOTA**: Como recordatorio o si estás siguiendo mi guía, los conceptos que se estan usando en el código anterior son *estructuras*, *punteros* y *casteo*. Estos temas están en [*C in a Nutshell* 2Ed](https://www.oreilly.com/library/view/c-in-a/9781491924174/):
 * Ch.  4: Type Conversions (cast operator, pag. 49)
 * Ch.  9: Ponters (Explicit Pointer Conversions, pag. 59)
 * Ch. 10: Structures, Unions, and Bit-Fields
