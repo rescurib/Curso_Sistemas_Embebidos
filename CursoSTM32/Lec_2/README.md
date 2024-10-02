@@ -23,7 +23,7 @@ Usando la documentación del modulo en el RM0003 podemos crear las siguientes es
 
 ```C
 // ----------------- Relojes ---------------------
-// Dirección (Datasheet, pag. 33, Figure 11)
+// (Reference Manual (RM0008), Tabla 3, Reset and clock control RCC, pag. 50)
 #define RCC_BASE 0x40021000U
 
 // Estructura de registros
