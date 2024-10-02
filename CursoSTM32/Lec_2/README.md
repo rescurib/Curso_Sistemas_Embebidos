@@ -47,7 +47,13 @@ typedef struct
 #define RCC   ((RCC_RegDef*)RCC_BASE)
 //------------------------------------------------
 ```
-Ejemplo, habilitar el reloj para el Puerto C (en donde esta el led de la Blue Pill):
+**NOTA**: Como recordatorio o si estás siguiendo mi guía, los conceptos que se estan usando en el código anterior son *estructuras*, *punteros* y *casteo*. Estos temas están en *C in a Nutshell* 2Ed:
+* Ch.  4: Type Conversions (cast operator, pag. 49)
+* Ch.  9: Ponters (Explicit Pointer Conversions, pag. 59)
+* Ch. 10: Structures, Unions, and Bit-Fields
+Es importante entenderlos porque serán usandos constantemente.
+
+**Ejemplo**, habilitar el reloj para el Puerto C (en donde esta el led de la Blue Pill):
 
 ```C
 /* Habilitar reloj en GPIOC */
