@@ -62,11 +62,59 @@ En la pag. 163 del RM0008 se muestra el siguiente diagrama de las configuración
 <img src="https://drive.google.com/uc?export=view&id=1a5fwK4xVnd_LMzWpixnK-jPWmJgBvelU" width="700">
 <p>
 
-Podemos observar que tenemos la opición de activar/desactivar resistores pull-up y pull-down. El modo pull-up nos permite asegurar que la entrada tendra un buen nivel de alto lógico. Esto es útil cuando estamos leyendo una señal digital que venga desde un circuito que no tenga el suficiente nivel voltaje. El pull-down nos es util cuando el circuito que estamos leyendo nos da una lectura de tierra en nivel bajo. El triggrt Schmitt es un circuito que nos permite tener lecturas digitales robustas al ruido (subidas y bajadas de voltaje aleatorias). En [este video](https://www.youtube.com/watch?v=Z4pt9Abn3dY) se explica de forma clara su funcionamiento. Si requieren profundizar en el tema puede consultar la pag. 809 del Principios de Electrónica de Malvino-Bates. La configuración se selecciona con los registros **GPIOx_CRL** y **GPIOx_CRH** (x=A..G) [pag. 171, RM0008]. Revisar tambien la tabla 20 de la pag. 161.
+Podemos observar varias características interesantes a nivel de hardware. Las entradas están protegidas con con diodos de manera que los voltajes de entrada son saturados al rango GND-3.3V (o 5V en los pines tolerantes). Tenemos tambien la opición de activar/desactivar resistores pull-up y pull-down. El modo pull-up nos permite asegurar que la entrada tendra un buen nivel de alto lógico. Esto es útil cuando estamos leyendo una señal digital que venga desde un circuito que no tenga el suficiente nivel voltaje. El pull-down nos es útil cuando el circuito que estamos leyendo no nos da una lectura de tierra en nivel bajo. Luego tenemos un *Schmitt Trigger*; un circuito que nos permite obtener lecturas digitales robustas al ruido (subidas y bajadas aleatorias de voltaje). En [este video](https://www.youtube.com/watch?v=Z4pt9Abn3dY) se explica de forma clara su funcionamiento. Si requieren profundizar en el tema puede consultar la pag. 809 del Principios de Electrónica de Malvino-Bates. La configuración se selecciona con los registros **GPIOx_CRL** y **GPIOx_CRH** (x=A..G) [pag. 171, RM0008]. Revisar tambien la tabla 20 de la pag. 161.
 
 Un dato que puede ser útil a la hora de identificar fallas son los valores de voltaje que delimitan el 0 y el 1 lógicos. En la tabla 35, pag. 61 de DS5319 podemos consultar los valores para el voltaje minimo de nivel alto de entrada (V_IH) y el voltaje máximo de nivel bajo de entrada (V_IL), los cuales son:
 * V_IH = 0.65*VDD | 2.145V con VDD = 3.3V
 * V_IL = 0.35*VDD | 1.155V
+
+El diagrama también muestra el siguiente registro relevante a las entradas:
+* **Port input data register** (GPIOx_IDR) (x=A..G), pag. 172 (RM0008). Contiene los estados de los pines de entrada para un puerto *x*.
+
+Otros dos registros muy importantes son:
+* **Port configuration register low** (GPIOx_CRL) (x=A..G), pag. 171 (RM0008).
+* **Port configuration register high** (GPIOx_CRH) (x=A..G), pag. 172 (RM008).
+
+Ejemplo: Configuración del pin PB4 como entrada con pull-up
+```C
+(Reference Manual (RM0008), Tabla 3, pag. 51)
+#define PORTB_BASE			0x40010C00U
+
+// Estructura de registros GPIO
+// (Reference Manual (RM0008), Sec. 9.2, pag. 171)
+typedef struct
+{
+	volatile uint32_t CRL; //Configuration Register Low  (pag. 171)
+	volatile uint32_t CRH; //Configuration Register High (pag. 172)
+	volatile uint32_t IDR; //Input Data Register (pag. 172)
+	volatile uint32_t ODR; //Output Data Register (pag. 173)
+	volatile uint32_t BSRR;//Bit Set/Reset Register(pag. 173)
+	volatile uint32_t BRR; //Bit Reset Register (pag. 174)
+	volatile uint32_t LCKR;//Configuration Lock Register (pag. 174)
+} GPIO_RegDef;
+
+#define GPIOB ((GPIO_RegDef*)PORTB_BASE)
+#define pin_cnf_size (4) // Bits que cada pin ocupa en CRL/CRH [CNFx[1:0] MODEx[1:0]]
+
+int main()
+{
+    /* Habilitar reloj en GPIOB */
+    RCC->APB2ENR |= (1<<3); // Setear bit 3: IOPBEN (pag. 147)
+
+    // Configurar el pin RB4 como entrada (pag, 171)
+    GPIOB->CRL &= ~(0xF << (pin_cnf_size * 4));    // Limpiar configuración de pin 4
+    GPIOB->CRL |=  (0b1000 << (pin_cnf_size * 4)); // CNF = 10 (Pull-up), MODE = 00 (Input)
+
+    // Activar la resistencia pull-up
+    GPIOB->ODR |= (1 << 4);          // Establecer el pin a HIGH para activar pull-up
+
+    while (1) {
+        // Bucle infinito
+    }
+}
+
+
+```
 
 ### Salidas digitales
 En la pag. 164 del RM0008 se muestra el siguiente diagrama de las configuración para salida digital:
@@ -114,7 +162,7 @@ Usando la documentación del RM0008 podemos contruir las siguientes estructuras 
 
 ```C
 //---------------- Puertos ------------------
-// Direcciones. (Reference Manual (RM0008), Table 3, pag. 51)
+// Direcciones. (Reference Manual (RM0008), Tabla 3, pag. 51)
 #define PORTA_BASE			0x40010800U
 #define PORTB_BASE			0x40010C00U
 #define PORTC_BASE			0x40011000U
