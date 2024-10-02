@@ -51,6 +51,7 @@ typedef struct
 * Ch.  4: Type Conversions (cast operator, pag. 49)
 * Ch.  9: Ponters (Explicit Pointer Conversions, pag. 59)
 * Ch. 10: Structures, Unions, and Bit-Fields
+* 
 Es importante entenderlos porque serán usandos constantemente.
 
 **Ejemplo**, habilitar el reloj para el Puerto C (en donde esta el led de la Blue Pill):
