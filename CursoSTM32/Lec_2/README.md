@@ -49,6 +49,7 @@ typedef struct
 ```
 **NOTA**: Como recordatorio o si estás siguiendo mi guía, los conceptos que se estan usando en el código anterior son *estructuras*, *punteros* y *casteo*. Estos temas están en [*C in a Nutshell* 2Ed](https://www.oreilly.com/library/view/c-in-a/9781491924174/):
 * Ch.  4: Type Conversions (cast operator, pag. 49)
+* Ch.  5: Expressions and Operators (Shift operators, pag. 85)
 * Ch.  9: Ponters (Explicit Pointer Conversions, pag. 59)
 * Ch. 10: Structures, Unions, and Bit-Fields
 
