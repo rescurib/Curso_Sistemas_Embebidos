@@ -18,15 +18,40 @@ Creamos los archivos en blanco en File->New->Source File, File->New->Header File
 
 ## Sin IDE (gcc-arm-none-eabi desde terminal)
 
-[pendiente]
-
+### Instalación del GNU Toolchain en Linux
 
 ```
 sudo apt update
 sudo apt install gcc-arm-none-eabi
 ```
 
-Para compilar
+Compilar
+```Bash
+# -------------------- Flags de Compilación --------------------
+# -mcpu=cortex-m3: Especifica el CPU objetivo (Cortex-M3)
+# -Wall          : Habilita todas las advertencias
+# -O0            : Sin optimización para fines de depuración
+# -nostartfiles  : No usar los archivos de inicio estándar 
+# -nostdlib      : No usar biblioteca estándar de C durante enlace
+# ---------------------------------------------------------------
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -O0 -nostartfiles -nostdlib -c main.c -o main.o
 ```
-arm-none-eabi-gcc main.o -T LinkerScript.ld -o output.elf
+
+Enlazar
+```Bash
+# ------------------ Flags de Enlace------------------
+# -T LinkerScript.ld : Especifica el script de enlace (define el diseño de memoria)
+# -Wl,--gc-sections  : Elimina secciones no utilizadas para reducir el tamaño del binario
+# -----------------------------------------------------------
+arm-none-eabi-ld main.o -T LinkerScript.ld -o LedBlinking.elf 
 ```
+
+Flashear
+```Bash
+# Convertir archivo ELF a BIN
+arm-none-eabi-objcopy -O binary LedBlinking.elf LedBlinking.bin
+
+# Flashear usando ST-Link. Si es exitoso (&&), ejecturar reset
+st-flash write LedBlinking.bin 0x08000000 && st-flash reset 
+```
+
