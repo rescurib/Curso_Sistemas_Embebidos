@@ -18,14 +18,31 @@ Creamos los archivos en blanco en File->New->Source File, File->New->Header File
 
 ## Sin IDE (gcc-arm-none-eabi desde terminal)
 
-### Instalación del GNU Toolchain en Linux
+### Instalación del GNU Toolchain
 
-```
+En distros de Linux basadas en Debian:
+```Bash
 sudo apt update
-sudo apt install gcc-arm-none-eabi
+sudo apt install gcc-arm-none-eabi binutils-arm-none-eabi openocd stlink-tools
 ```
 
-Compilar
+En Windows la forma que recomiendo es instalar el entorno *UNIX-like* [MYSYS2](https://www.msys2.org/) Después instalar con Pacman:
+
+```Bash
+pacman -Syu
+pacman -S mingw-w64-ucrt-x86_64-gcc arm-none-eabi-gcc arm-none-eabi-binutils openocd stlink-tools
+```
+
+Apartir de aquí, todos comandos de terminal que se mencionen aplicarán para ambos sistemas operativos.
+
+se verifica instalación con:
+```Bash
+arm-none-eabi-gcc --version
+openocd --version
+st-info --version
+```
+
+Compilar:
 ```Bash
 # -------------------- Flags de Compilación --------------------
 # -mcpu=cortex-m3: Especifica el CPU objetivo (Cortex-M3)
@@ -37,7 +54,7 @@ Compilar
 arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -O0 -nostartfiles -nostdlib -c main.c -o main.o
 ```
 
-Enlazar
+Enlazar:
 ```Bash
 # ------------------ Flags de Enlace------------------
 # -T LinkerScript.ld : Especifica el script de enlace (define el diseño de memoria)
@@ -46,7 +63,7 @@ Enlazar
 arm-none-eabi-ld main.o -T LinkerScript.ld -o LedBlinking.elf 
 ```
 
-Flashear
+Flashear:
 ```Bash
 # Convertir archivo ELF a BIN
 arm-none-eabi-objcopy -O binary LedBlinking.elf LedBlinking.bin
