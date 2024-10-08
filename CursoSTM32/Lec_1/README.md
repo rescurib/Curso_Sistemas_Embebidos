@@ -116,7 +116,7 @@ Los accesos de carga-almacenamiento pueden relizarse almacenando una dirección 
 <img src="https://drive.google.com/uc?export=view&id=1uU8rWdbDEns2DtgpSQ57xA0fQGh9MCOC" width="800">
 <p>
 
-En los microcontroladores basados en ARM, solo una pequeña parte del espacio de memoria está implementada físicamente; sin embargo, se mantienen los valores de las direcciones que delimitan las áreas mencionadas. Por ejemplo, las regiones de memoria válidas para la Flash y la SRAM para un STM32F103C8 se definen de esta manera en un script de linker:
+En los microcontroladores basados en ARM, solo una pequeña parte del espacio de memoria está implementada físicamente; sin embargo, se mantienen los valores de las direcciones que delimitan las áreas mencionadas. Por ejemplo, las regiones de memoria válidas para la Flash y la SRAM para un STM32F103C8 se definen de esta manera en un **script de enlazado** (o *linker script*) que es un archivo que define cómo se deben colocar los diferentes módulos de código máquina y recursos en un programa en el espacio de memoria:
 
 ```
 MEMORY
@@ -125,4 +125,4 @@ MEMORY
  SRAM (xrw) : ORIGIN = 0x20000000, LENGTH = 20K
 }
 ```
-Más adelate explicaré como funcionan estos scripts. Por ahora ya estamos listos para la siguiente lección: manejo de GPIOS.
+Más adelate explicaré como funcionan estos scripts y lo que es un proceso de enlazado. Por ahora ya estamos listos para la siguiente lección: manejo de GPIOS.
