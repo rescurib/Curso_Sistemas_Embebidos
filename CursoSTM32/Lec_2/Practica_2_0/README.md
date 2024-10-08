@@ -85,4 +85,14 @@ arm-none-eabi-objcopy -O binary LedBlinking.elf LedBlinking.bin
 # Flashear usando ST-Link. Si es exitoso (&&), ejecturar reset
 st-flash write LedBlinking.bin 0x08000000 && st-flash reset 
 ```
+O de forma alternativa, también se puede usar OpenOCD:
+
+```Bash
+openocd -f interface/stlink.cfg -f target/stm32f1x.cfg -c "init; reset halt; program LedBlinking.bin 0x08000000 verify; reset run; shutdown"
+```
+[OpenOCD](https://openocd.org/pages/documentation.html), u Open On-Chip Debugger, es una herramienta de software libre diseñada para la depuración, programación para dispositivos embebidos. Su principal función es facilitar la depuración de microcontroladores y sistemas integrados, permitiendo interactuar con el hardware a través de protocolos como JTAG y SWD. Hablaremos de él más adelante en el curso.
+
+### Gestores de dependencias y *build systems*
+
+En este punto se lo que deben estar pensando; *¿cómo es posible mantener un proyecto de firmware grande con tantos comandos y argumentos?* Pues bien, afortunadamente existen gestores de dependencias como [make](https://www.gnu.org/software/make/) y [CMake](https://cmake.org/) que permiten mantener y automatizar la contrucción de código en C/C++ a través de scripts. Usaremos make en futuras prácticas. Si quieren adelantarse, pueden revisar *C in a Nutshell [2Ed.]*, Prinz- Crawford, Ch. 20: Using make to Build C Programs, Pag. 695. 
 
