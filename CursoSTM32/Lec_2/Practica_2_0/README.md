@@ -20,6 +20,8 @@ Creamos los archivos en blanco en File->New->Source File, File->New->Header File
 
 ### Instalación del GNU Toolchain
 
+**GCC** (GNU Compiler Collection) es un conjunto de compiladores de código abierto que soporta varios lenguajes de programación, incluyendo C y C++. **arm-none-eabi-gcc** es una variante específica del compilador GCC diseñada para la programación de microcontroladores ARM. *EABI* significa *"Embedded Application Binary Interface"*, lo que implica que está optimizado para entornos embebidos. El *none* en el prefijo significa también que no incluye las características para sistema operativo que se encontrarían en compiladores como arm-linux-gnueabi-gcc, que está diseñado para procesadores que corraran Linux.
+
 En distros de Linux basadas en Debian:
 ```Bash
 sudo apt update
@@ -45,6 +47,14 @@ st-info --version
 **TIP**: ya que usaremos varios argumentos para cada comando, es bueno tener en cuenta los siguientes atajos de teclado para la terminal (también funcionan para la terminal de MYSYS2/MINGW64):
 * Ctrl + <*flechas*>  -> Moverse entre argumentos
 * Ctrl + w -> Borra argumento/commando antes del cursor
+
+**REFERENCIA**: Leer *C in a Nutshell [2Ed.]*, Prinz- Crawford, Ch. 19: Compiling with GCC, Pag. 669
+
+### Proceso de construcción de un programa en C
+
+[Pendiente]
+
+### Construcción de nuestro ejemplo de blinking mínimo
 
 Compilar:
 ```Bash
