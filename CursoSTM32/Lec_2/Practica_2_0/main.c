@@ -16,6 +16,12 @@
 #define SRAM_END (SRAM_BASE + SRAM_SIZE)
 
 /* Tabla de vectores (vector table) mínima */
+/*************************************************************
+ * NOTA: Es necesaria para el correcto inicio de este ejemplo.
+ * Para entender porque, revisar: 
+ *    Mastering STM32, Carmine Noviello
+ *        - 7.1.1 Vector Table in STM32, pag. 174
+ *************************************************************/
 uint32_t *vector_table[] __attribute__((section(".isr_vector"))) = {
 (uint32_t *)SRAM_END, // stack pointer inicial
 (uint32_t *)main      // función main como Reset_Handler
