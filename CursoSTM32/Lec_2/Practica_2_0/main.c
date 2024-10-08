@@ -29,11 +29,11 @@ uint32_t *vector_table[] __attribute__((section(".isr_vector"))) = {
 
 int main() {
 /* Habilitar reloj en GPIOC */
- RCC->APB2ENR |= (1<<4); // Setear bit 4: IOPCEN (pag. 146)
+ RCC->APB2ENR |= (1<<4); // Setear bit 4: IOPCEN (RM0008, pag. 146)
 
 /* Configurar PC13 (LED) como salida push-pull */
- GPIOC->CRH |=  (1<<20); // MODE13[1:0]: Salida, vel. max. 10MHz (pag. 172)
- GPIOC->CRH &= ~(0b11<<22); // CNF13[1:0]: Push-Pull (pag. 172)
+ GPIOC->CRH |=  (1<<20); // MODE13[1:0]: Salida, vel. max. 10MHz (RM0008, pag. 172)
+ GPIOC->CRH &= ~(0b11<<22); // CNF13[1:0]: Push-Pull (RM0008, pag. 172)
 
  while(1)
  {
