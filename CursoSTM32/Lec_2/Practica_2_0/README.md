@@ -42,6 +42,10 @@ openocd --version
 st-info --version
 ```
 
+**TIP**: ya que usaremos varios argumentos para cada comando, es bueno tener en cuenta los siguientes atajos de teclado para la terminal (también funcionan para la terminal de MYSYS2/MINGW64):
+* Ctrl + <*flechas*>  -> Moverse entre argumentos
+* Ctrl + w -> Borra argumento/commando antes del cursor
+
 Compilar:
 ```Bash
 # -------------------- Flags de Compilación --------------------
