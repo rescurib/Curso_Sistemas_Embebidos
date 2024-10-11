@@ -52,7 +52,26 @@ st-info --version
 
 ### Proceso de construcción de un programa en C
 
-[Pendiente]
+El término *build* en el desarrollo de programas en C/C++ se refiere al conjunto de actividades y pasos necesarios para convertir el código fuente en un *artefacto* ejecutable, en este caso, un binario flasheable que el microcontrolador pueda ejecutar correctamente. El proceso completo puede resumirse en el siguiente diagrama:
+
+<p align="center">
+<img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/C_Build_Process.png">
+<p>
+
+Hay algunos pasos, como el preprocesamiento de macros, que no aparecen explicitamente en el diagrama para facilitar el entendimiento de la imagen completa. Por ahora vamos a concentrarnos en los más importantes:
+
+* **Compilación**. Aunque se suele usar esta palabra para referse al *build process* entero, en realidad la compilación es el proceso que toma como entrada el código fuente en C y produce código en ensamblador.
+* **Ensamble**. El proceso que toma como entrada los archivos en ensamblador y produce *objetos* de código máquina.
+* **Enlazado**. El proceso de combinar los archivos objeto generados por el compilador en un único archivo ejecutable. Esto se logra con algo llamado resolución de *símbolos*.
+
+Para entender a detalle este proceso, recomiendo las siguientes lecturas en este orden:
+
+1. **Computer Organization and Design [RISC-V ED]**, Patterson-Henessey
+    * 2.12 *Translating and Starting a Program*
+    * 2.13 *A C Sort Example to Put it All Together*
+2. **Mastering STM32 [2Ed]**, Carmine Noviello
+    * 20.1.3 *Understanding Compilation and Linking Processes*
+    * *20.2 The Really Minimal STM32 Application*
 
 ### Construcción de nuestro ejemplo de blinking mínimo
 
