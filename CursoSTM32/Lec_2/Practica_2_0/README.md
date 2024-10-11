@@ -31,8 +31,8 @@ sudo apt install gcc-arm-none-eabi binutils-arm-none-eabi openocd stlink-tools
 En Windows la forma que recomiendo es instalar el entorno *UNIX-like* [MYSYS2](https://www.msys2.org/) Después instalar con Pacman:
 
 ```Bash
-pacman -Syu
-pacman -S mingw-w64-ucrt-x86_64-gcc arm-none-eabi-gcc arm-none-eabi-binutils openocd stlink-tools
+pacman -Syuu
+pacman -S mingw-w64-x86_64-arm-none-eabi-gcc mingw-w64-x86_64-arm-none-eabi-binutils mingw-w64-x86_64-openocd mingw-w64-x86_64-stlink
 ```
 
 Apartir de aquí, todos comandos de terminal que se mencionen aplicarán para ambos sistemas operativos.
