@@ -76,7 +76,7 @@ Para entender a detalle este proceso, recomiendo las siguientes lecturas en este
 
 ### Construcción de nuestro ejemplo de blinking mínimo
 
-Compilar:
+**Compilar**:
 ```Bash
 # -------------------- Flags de Compilación --------------------
 # -mcpu=cortex-m3: Especifica el CPU objetivo (Cortex-M3)
@@ -100,7 +100,7 @@ delay:
 	str	r0, [r7, #4]
 	nop
 ```
-Ensamblar:
+**Ensamblar**:
 ```Bash
 # -------------------- Flags de Ensamble --------------------
 # -mcpu=cortex-m3: Especifica el CPU objetivo (Cortex-M3)
@@ -130,7 +130,7 @@ Contents of section .text:
 ```
 Los 2 bytes más a la izquierda representan la posición en memoria. Estas son direcciones relativas porque este punto del *build* todos los archivos .o iniciaran en la dirección 0.
 
-Enlazar:
+**Enlazar**:
 ```Bash
 # ------------------ Flags de Enlace------------------
 # -T LinkerScript.ld : Especifica el script de enlace (define el diseño de memoria)
@@ -138,7 +138,7 @@ Enlazar:
 # -----------------------------------------------------------
 arm-none-eabi-ld main.o -T LinkerScript.ld -o LedBlinking.elf 
 ```
-El archivo .elf contiene tambien código máquina pero con los símbolos resueltos. Si usamos nuevamente objdump notaremos algo pecualiar:
+El archivo .elf contiene tambien código máquina pero con los símbolos resueltos. Si usamos nuevamente objdump notaremos algo peculiar:
 ```
 .\LedBlinking.elf:     file format elf32-littlearm
 Contents of section .text:
@@ -154,7 +154,7 @@ Contents of section .text:
 ````
 ¡La dirección del código comienza en 0x8000000! Justo como marca la documentación donde debería comenzar la región de memoria para la Flash.
 
-Flashear:
+**Flashear**:
 ```Bash
 # Convertir archivo ELF a BIN
 arm-none-eabi-objcopy -O binary LedBlinking.elf LedBlinking.bin
