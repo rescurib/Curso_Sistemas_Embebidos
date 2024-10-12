@@ -28,12 +28,13 @@ sudo apt update
 sudo apt install gcc-arm-none-eabi binutils-arm-none-eabi openocd stlink-tools
 ```
 
-En Windows la forma que recomiendo es instalar el entorno *UNIX-like* [MYSYS2](https://www.msys2.org/) Después instalar con Pacman:
+En Windows la forma que recomiendo es instalar el entorno *UNIX-like* [MYSYS2](https://www.msys2.org/) Eligiendo el [*ambiente*](https://www.msys2.org/docs/environments/) UCRT64, instalar con Pacman:
 
 ```Bash
 pacman -Syuu
-pacman -S mingw-w64-x86_64-arm-none-eabi-gcc mingw-w64-x86_64-arm-none-eabi-binutils mingw-w64-x86_64-openocd mingw-w64-x86_64-stlink
+pacman -S mingw-w64-ucrt-x86_64-arm-none-eabi-gcc mingw-w64-ucrt-x86_64-arm-none-eabi-binutils mingw-w64-ucrt-x86_64-openocd mingw-w64-ucrt-x86_64-stlink
 ```
+NOTA: Puedes usar la consola UCRT64 pero si quieres usar el GNU toolchain desde CMD, debes añadir a la variable de entorno de sistema PATH este directorio: C:\msys64\ucrt64\bin
 
 Apartir de aquí, todos comandos de terminal que se mencionen aplicarán para ambos sistemas operativos.
 
@@ -44,7 +45,7 @@ openocd --version
 st-info --version
 ```
 
-**TIP**: ya que usaremos varios argumentos para cada comando, es bueno tener en cuenta los siguientes atajos de teclado para la terminal (también funcionan para la terminal de MYSYS2/MINGW64):
+**TIP**: ya que usaremos varios argumentos para cada comando, es bueno tener en cuenta los siguientes atajos de teclado para la terminal (también funcionan para las terminales de MYSYS2):
 * Ctrl + <*flechas*>  -> Moverse entre argumentos
 * Ctrl + w -> Borra argumento/commando antes del cursor
 
