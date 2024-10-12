@@ -80,13 +80,55 @@ Compilar:
 ```Bash
 # -------------------- Flags de Compilación --------------------
 # -mcpu=cortex-m3: Especifica el CPU objetivo (Cortex-M3)
+# -mthumb        : Conjunto de instrucciones Thumb
 # -Wall          : Habilita todas las advertencias
 # -O0            : Sin optimización para fines de depuración
 # -nostartfiles  : No usar los archivos de inicio estándar 
 # -nostdlib      : No usar biblioteca estándar de C durante enlace
 # ---------------------------------------------------------------
-arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -O0 -nostartfiles -nostdlib -c main.c -o main.o
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -O0 -nostartfiles -nostdlib -S main.c -o main.s
 ```
+Si abrimos el archivo main.s, podremos ver nuestro programa traducido a instrucciones de ensamblador. Aquí va un pequeño segmento:
+```assembly
+delay:
+	@ args = 0, pretend = 0, frame = 8
+	@ frame_needed = 1, uses_anonymous_args = 0
+	@ link register save eliminated.
+	push	{r7}
+	sub	sp, sp, #12
+	add	r7, sp, #0
+	str	r0, [r7, #4]
+	nop
+```
+Ensamblar:
+```Bash
+# -------------------- Flags de Ensamble --------------------
+# -mcpu=cortex-m3: Especifica el CPU objetivo (Cortex-M3)
+# -mthumb        : Conjunto de instrucciones Thumb
+# ---------------------------------------------------------------
+arm-none-eabi-as -mcpu=cortex-m3 -mthumb main.s -o main.o
+```
+Ya que los archivos objeto (.o) contien código máquina, no pueden visualizarse como texto plano. Una manera de inspeccionarlos es con la herramienta [arm-none-eabi-objdump](https://manpages.debian.org/bookworm/binutils-arm-none-eabi/arm-none-eabi-objdump.1.en.html):
+
+```Bash
+arm-none-eabi-objdump -s main.o
+```
+
+Lo que nos arrojará algo como esto:
+
+```
+main.o:     file format elf32-littlearm
+Contents of section .text:
+ 0000 80b483b0 00af7860 00bf7b68 5a1e7a60  ......x`..{hZ.z`
+ 0010 002bfad1 00bf00bf 0c37bd46 80bc7047  .+.......7.F..pG
+ 0020 80b500af 124b9b69 114a43f0 10039361  .....K.i.JC....a
+ 0030 104b5b68 0f4a43f4 80135360 0d4b5b68  .K[h.JC...S`.K[h
+ 0040 0c4a23f4 40035360 0a4bdb68 094a43f4  .J#.@.S`.K.h.JC.
+ 0050 0053d360 0848fff7 feff064b db68054a  .S.`.H.....K.h.J
+ 0060 23f40053 d3600448 fff7feff 00bfebe7  #..S.`.H........
+ 0070 00100240 00100140 400d0300           ...@...@@...
+```
+Los 2 bytes más a la izquierda representan la posición en memoria. Estas son direcciones relativas porque este punto del *build* todos los archivos .o iniciaran en la dirección 0.
 
 Enlazar:
 ```Bash
@@ -96,6 +138,21 @@ Enlazar:
 # -----------------------------------------------------------
 arm-none-eabi-ld main.o -T LinkerScript.ld -o LedBlinking.elf 
 ```
+El archivo .elf contiene tambien código máquina pero con los símbolos resueltos. Si usamos nuevamente objdump notaremos algo pecualiar:
+```
+.\LedBlinking.elf:     file format elf32-littlearm
+Contents of section .text:
+ 8000000 00500020 29000008 80b483b0 00af7860  .P. ).........x`
+ 8000010 00bf7b68 5a1e7a60 002bfad1 00bf00bf  ..{hZ.z`.+......
+ 8000020 0c37bd46 80bc7047 80b500af 124b9b69  .7.F..pG.....K.i
+ 8000030 114a43f0 10039361 104b5b68 0f4a43f4  .JC....a.K[h.JC.
+ 8000040 80135360 0d4b5b68 0c4a23f4 40035360  ..S`.K[h.J#.@.S`
+ 8000050 0a4bdb68 094a43f4 0053d360 0848fff7  .K.h.JC..S.`.H..
+ 8000060 d3ff064b db68054a 23f40053 d3600448  ...K.h.J#..S.`.H
+ 8000070 fff7caff 00bfebe7 00100240 00100140  ...........@...@
+ 8000080 400d0300                             @...
+````
+¡La dirección del código comienza en 0x8000000! Justo como marca la documentación donde debería comenzar la región de memoria para la Flash.
 
 Flashear:
 ```Bash
