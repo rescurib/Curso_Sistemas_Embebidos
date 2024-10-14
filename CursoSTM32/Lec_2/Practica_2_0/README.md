@@ -2,8 +2,9 @@
 En esta práctica compilaremos y cargaremos a la Blue Pill un programa de blinkeo sencillo pero lo harémos sin utilizar el asistente de proyecto. 
 
 ## Con STMCube IDE
+**Creación del proyecto**
 
-Primero creamos un proyecto haciendo click en File->New->C/C++ Project. Seleccionamos Project Type: Empty Project y Toolchain: MCU ARMG GCC.
+Primero creamos un proyecto haciendo click en `File->New->C/C++ Project`. Seleccionamos Project Type: Empty Project y Toolchain: MCU ARMG GCC.
 
 <p align="center">
 <img src="https://drive.google.com/uc?export=view&id=19SU_XpNq8IU88xGeL3euPZn8kl2klYrN" width="830">
@@ -14,7 +15,24 @@ Para este programa vamos a necesitar 3 archivos:
 * main.h
 * LinkerScript.ld
 
-Creamos los archivos en blanco en File->New->Source File, File->New->Header File y File->New->File from Template, respectivamente. 
+Creamos los archivos en blanco en `File->New->Source File`, `File->New->Header File` y `File->New->File from Template`, respectivamente. 
+
+**Compilar (*Build*) el Proyecto**
+
+Para compilar el proyecto y generar el binario:
+
+1. Haz clic derecho sobre el nombre de tu proyecto en el `Project Explorer`.
+2. Selecciona `Build Project` o presiona `Ctrl+B`.
+3. En la consola verás la salida del proceso de compilación. Asegúrate de que no haya errores.
+
+**Flashear el Código a la Placa (ST-Link)**
+
+1. Conecta tu Blue Pill a tu computadora utilizando un programador ST-Link.
+2. En STM32CubeIDE, haz clic en el menú superior `Run -> Debug Configurations`.
+3. Selecciona `STM32 MCU C/C++ Application` bajo la opción de `GDB OpenOCD Debugging`.
+4. En la pestaña `Debugger`, asegúrate de que esté seleccionada la opción `ST-LINK (OpenOCD)` en el campo `Interface`.
+5. Haz clic en `Apply` y luego en `Debug` para flashear el código y comenzar a depurar.
+6. Si prefieres ejecutar el código sin depuración, selecciona `Run -> Run As -> STM32 MCU C/C++ Application`.
 
 ## Sin IDE (gcc-arm-none-eabi desde terminal)
 
