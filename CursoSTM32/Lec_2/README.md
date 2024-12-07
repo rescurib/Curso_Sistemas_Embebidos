@@ -3,7 +3,7 @@ El módulo de entradas y salidas de propósito general es el módulo más simple
 
 Para el STM32F103C8T6 necesitamos tener a la mano el documento [RM0008](https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-arm-based-32-bit-mcus-stmicroelectronics.pdf) que es nuestro manual de referencia y el [DS5319](https://www.st.com/resource/en/datasheet/stm32f103c8.pdf) que es la datasheet para STM32F103x8 y STM32F103xB. 
 
-Aquí va algo **fundamental** en el desarrollo embebido: desde el punto de vista del *firmware*, la operación y configuración de los módulos hardware es SOLO lectura y escritura de registros. Dicho de otra forma, el procesador no ve *periféricos* sino meros **registros** a los cuales leer o escribir datos. Es por eso que se hará tanto énfasis en la documentación de los registros, no sólo para GPIOs sino el resto de los periféricos.
+Aquí va algo **fundamental** en el desarrollo embebido: desde el punto de vista del *firmware*, la operación y configuración de los módulos hardware es SOLO lectura y escritura de registros. Dicho de otra forma, el procesador no ve *periféricos* sino meros **registros** a los cuales leer o escribir datos. Es por eso que se hará tanto énfasis en la documentación de los registros, no sólo para los GPIOs sino también para el resto de los periféricos.
 
 ## Habilitación de relojes de módulo
 
