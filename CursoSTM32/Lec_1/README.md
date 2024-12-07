@@ -125,4 +125,4 @@ MEMORY
  SRAM (xrw) : ORIGIN = 0x20000000, LENGTH = 20K
 }
 ```
-Más adelate explicaré como funcionan estos scripts y lo que es un proceso de enlazado. Por ahora ya estamos listos para la siguiente lección: manejo de GPIOS.
+Más adelate explicaré como funcionan estos scripts y lo que es un proceso de enlazado. Por ahora ya estamos listos para la siguiente lección: [manejo de GPIOS](https://github.com/rescurib/Curso_Sistemas_Embebidos/tree/main/CursoSTM32/Lec_2).
