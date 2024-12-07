@@ -189,5 +189,5 @@ openocd -f interface/stlink.cfg -f target/stm32f1x.cfg -c "init; reset halt; pro
 
 ### Gestores de dependencias y *build systems*
 
-En este punto se lo que deben estar pensando; *¿cómo es posible mantener un proyecto de firmware grande con tantos comandos y argumentos?* Pues bien, afortunadamente existen gestores de dependencias como [make](https://www.gnu.org/software/make/) y [CMake](https://cmake.org/) que permiten mantener y automatizar la contrucción de código en C/C++ a través de scripts. Usaremos make en futuras prácticas. Si quieren adelantarse, pueden revisar *C in a Nutshell [2Ed.]*, Prinz- Crawford, Ch. 20: Using make to Build C Programs, Pag. 695. 
+En este punto sé lo que deben estar pensando: *¿cómo es posible mantener un proyecto de firmware grande con tantos comandos y argumentos?* Pues bien, afortunadamente existen gestores de dependencias como [make](https://www.gnu.org/software/make/) y [CMake](https://cmake.org/) que permiten mantener y automatizar la contrucción de código en C/C++ a través de scripts. Usaremos make en futuras prácticas. Si quieren adelantarse, pueden revisar *C in a Nutshell [2Ed.]*, Prinz- Crawford, Ch. 20: Using make to Build C Programs, Pag. 695. 
 
