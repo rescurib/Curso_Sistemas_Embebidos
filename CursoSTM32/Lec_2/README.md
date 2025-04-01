@@ -85,45 +85,6 @@ Otros dos registros muy importantes son:
 * **Port configuration register low** (GPIOx_CRL) (x=A..G), pag. 171 (RM0008).
 * **Port configuration register high** (GPIOx_CRH) (x=A..G), pag. 172 (RM008).
 
-**Ejemplo**: Configuración del pin PB4 como entrada con pull-up
-```C
-// (Reference Manual (RM0008), Tabla 3, pag. 51)
-#define PORTB_BASE    0x40010C00U
-
-// Estructura de registros GPIO
-// (Reference Manual (RM0008), Sec. 9.2, pag. 171)
-typedef struct
-{
-	volatile uint32_t CRL; //Configuration Register Low  (pag. 171)
-	volatile uint32_t CRH; //Configuration Register High (pag. 172)
-	volatile uint32_t IDR; //Input Data Register (pag. 172)
-	volatile uint32_t ODR; //Output Data Register (pag. 173)
-	volatile uint32_t BSRR;//Bit Set/Reset Register(pag. 173)
-	volatile uint32_t BRR; //Bit Reset Register (pag. 174)
-	volatile uint32_t LCKR;//Configuration Lock Register (pag. 174)
-} GPIO_RegDef;
-
-#define GPIOB ((GPIO_RegDef*)PORTB_BASE)
-#define pin_cnf_size (4) // Bits que cada pin ocupa en CRL/CRH [CNFx[1:0] MODEx[1:0]]
-
-int main()
-{
-    /* Habilitar reloj en GPIOB */
-    RCC->APB2ENR |= (1<<3); // Setear bit 3: IOPBEN (pag. 147)
-
-    // Configurar el pin RB4 como entrada (pag, 171)
-    GPIOB->CRL &= ~(0xF << (pin_cnf_size * 4));    // Limpiar configuración de pin 4
-    GPIOB->CRL |=  (0b1000 << (pin_cnf_size * 4)); // CNF = 10 (Pull-up), MODE = 00 (Input)
-
-    // Activar la resistencia pull-up
-    GPIOB->ODR |= (1 << 4);   // Establecer el pin a HIGH para activar pull-up (Table 20, pag. 161)
-
-    while (1) {
-        // Bucle infinito
-    }
-}
-```
-
 ### Salidas digitales
 En la pag. 164 del RM0008 se muestra el siguiente diagrama de las configuración para salida digital:
 
@@ -200,6 +161,9 @@ typedef struct
 Ejemplo: Configuración del pin PC13 como salida con Push-Pull:
 
 ```C
+/* Habilitar reloj en GPIOC */
+RCC->APB2ENR |= (1<<4); // Setear bit 4: IOPCEN (pag. 147)
+
 /* Configurar PC13 (LED) como salida push-pull */
 GPIOC->CRH |=  (1<<20);    // MODE13[1:0]: Salida, vel. max. 10MHz (pag. 172)
 GPIOC->CRH &= ~(0b11<<22); // CNF13[1:0]: Push-Pull (pag. 172)
@@ -215,10 +179,14 @@ GPIOC->ODR |= 1<<13;    // Setear PC13 (apagar led)
 <p align="center">
 <img src="https://drive.google.com/uc?export=view&id=1hGsoBDoGMd64VvRen9jX6qP2hkSsSOaG" width="550">
 <p>
-La Tabla 20 de la página 161 resume las configuracionones de entrada salida y menciona también un detalle muy importante para la configuración de entradas. (La manera en la que esta escrita la tabla me parece un poco confusa asi que usaré la notación de la documentación de los registros: x = Puerto, y = num. de pin). Cuando los campos de GPIOx_CRL(x=A..G) MODEy[1:0] tienen el valor de "00" (input mode) y CNFy[1:0] = "10", los bits del registro ODR cumplen una función diferente; permite habiltar las resistencias internas de pull-up (ODRy = 1) o pull-down (ODRy = 0).
+La Tabla 20 de la página 161 resume las configuraciones de entrada salida y menciona también un detalle muy importante para la configuración de entradas. (La manera en la que esta escrita la tabla me parece un poco confusa asi que usaré la notación de la documentación de los registros: x = Puerto, y = num. de pin). Cuando los campos de GPIOx_CRL(x=A..G) MODEy[1:0] tienen el valor de "00" (input mode) y CNFy[1:0] = "10", los bits del registro ODR cumplen una función diferente; permite habiltar las resistencias internas de pull-up (ODRy = 1) o pull-down (ODRy = 0).
 
-Ejemplo: Configuración de pin A1 como entrada digital con pull-up habilitado
+**Ejemplo**. Configuración de pin A1 como entrada digital con pull-up habilitado
 ```C
+/* Habilitar reloj en GPIOA */
+RCC->APB2ENR |= (1<<2);                // Setear bit 2: IOPAEN (pag. 147)
+
+/* Configurar A1 como entrada con pull-up */
 GPIOA->CRL &= ~(0xF << (1 * 4));       // Limpiar configuración previa
                                        // Al no setear bits, MODE1[1:0] = 00 (Entrada)
 GPIOA->CRL |= (0b10 << ((1 * 4) + 2)); // CNF1 = 10 (Pull-up/Pull-down)
