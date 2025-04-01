@@ -211,9 +211,9 @@ Encendido y apagado:
 GPIOC->ODR &= ~(1<<13); // Limpiar PC13 (encender led)
 GPIOC->ODR |= 1<<13;    // Setear PC13 (apagar led)
 ```
-#### Tabla de configuracion de bits de puerto
+#### Tabla de configuración de bits de puerto
 <p align="center">
-<img src="https://drive.google.com/uc?export=view&id=1hGsoBDoGMd64VvRen9jX6qP2hkSsSOaG" width="700">
+<img src="https://drive.google.com/uc?export=view&id=1hGsoBDoGMd64VvRen9jX6qP2hkSsSOaG" width="550">
 <p>
 La Tabla 20 de la página 161 resume las configuracionones de entrada salida y menciona también un detalle muy importante para la configuración de entradas. (La manera en la que esta escrita la tabla me parece un poco confusa asi que usaré la notación de la documentación de los registros: x = Puerto, y = num. de pin). Cuando los campos de GPIOx_CRL(x=A..G) MODEy[1:0] tienen el valor de "00" (input mode) y CNFy[1:0] = "10", los bits del registro ODR cumplen una función diferente; permite habiltar las resistencias internas de pull-up (ODRy = 1) o pull-down (ODRy = 0).
 
