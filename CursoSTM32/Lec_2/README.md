@@ -201,7 +201,7 @@ Ejemplo: Configuración del pin PC13 como salida con Push-Pull:
 
 ```C
 /* Configurar PC13 (LED) como salida push-pull */
-GPIOC->CRH |=  (1<<20); // MODE13[1:0]: Salida, vel. max. 10MHz (pag. 172)
+GPIOC->CRH |=  (1<<20);    // MODE13[1:0]: Salida, vel. max. 10MHz (pag. 172)
 GPIOC->CRH &= ~(0b11<<22); // CNF13[1:0]: Push-Pull (pag. 172)
 ```
 Encendido y apagado:
@@ -211,7 +211,20 @@ Encendido y apagado:
 GPIOC->ODR &= ~(1<<13); // Limpiar PC13 (encender led)
 GPIOC->ODR |= 1<<13;    // Setear PC13 (apagar led)
 ```
+#### Tabla de configuracion de bits de puerto
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=1hGsoBDoGMd64VvRen9jX6qP2hkSsSOaG" width="700">
+<p>
+La Tabla 20 de la página 161 resume las configuracionones de entrada salida y menciona también un detalle muy importante para la configuración de entradas. (La manera en la que esta escrita la tabla me parece un poco confusa asi que usaré la notación de la documentación de los registros: x = Puerto, y = num. de pin). Cuando los campos de GPIOx_CRL(x=A..G) MODEy[1:0] tienen el valor de "00" (input mode) y CNFy[1:0] = "10", los bits del registro ODR cumplen una función diferente; permite habiltar las resistencias internas de pull-up (ODRy = 1) o pull-down (ODRy = 0).
+
+Ejemplo: Configuración de pin A1 como entrada digital con pull-up habilitado
+```C
+GPIOA->CRL &= ~(0xF << (1 * 4));       // Limpiar configuración previa
+                                       // Al no setear bits, MODE1[1:0] = 00 (Entrada)
+GPIOA->CRL |= (0b10 << ((1 * 4) + 2)); // CNF1 = 10 (Pull-up/Pull-down)
+GPIOA->ODR |= (1 << 1);                // Activar pull-up en PA1
+```
 
 ## Prácticas
 * [**Práctica 2.0: Programa *mínimo* para blinkear el Led del Blue Pill**](https://github.com/rescurib/Curso_Sistemas_Embebidos/tree/main/CursoSTM32/Lec_2/Practica_2_0). Esta práctica está basada en el ejemplo de la sección 20.2 *The Really Minimal STM32 Application* de *Mastering STM32* de Carmine Noviello en la que se usa STM32Cube IDE pero sin útilizar ningun wizard que genere ningun código de startup. Será una aplicación sencilla pero la aprovecharemos para aprender lo escencial del proceso de construción con el toolchain para arm-gcc.
-* **Práctica 2.1: Botones y técnicas anti-rebote**. En esta práctica si usarémos el wizard de proyecto STM32 y mostrarémos el uso las librerías HAL de ST para GPIO. Lo imparte en esta práctica será hablar de las implementaciones basadas en programación orientada a objetos en C y técnicas para mitigar el ruido de lectura en los botones.
+* **Práctica 2.1: Botones y técnicas anti-rebote**. En esta práctica si usarémos el wizard de proyecto STM32 y mostrarémos el uso las librerías HAL de ST para GPIO. Lo importante en esta práctica será hablar de las implementaciones basadas en programación orientada a objetos en C y técnicas para mitigar el ruido de lectura en los botones.
