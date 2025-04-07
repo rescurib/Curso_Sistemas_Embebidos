@@ -196,10 +196,10 @@ GPIOA->ODR |= (1 << 1);                // Activar pull-up en PA1
 uint estado_pin_a1;
 while(1)
 {
-  estado_pin_a1 = (GPIOA->IDR >> 1) & 0x01;
+  estado_pin_a1 = (GPIOA->IDR >> 1) & 0x01; // 9.2.3 Port input data register (pag. 172)
 }
 ```
 
 ## Prácticas
 * [**Práctica 2.0: Programa *mínimo* para blinkear el Led del Blue Pill**](https://github.com/rescurib/Curso_Sistemas_Embebidos/tree/main/CursoSTM32/Lec_2/Practica_2_0). Esta práctica está basada en el ejemplo de la sección 20.2 *The Really Minimal STM32 Application* de *Mastering STM32* de Carmine Noviello en la que se usa STM32Cube IDE pero sin útilizar ningun wizard que genere ningun código de startup. Será una aplicación sencilla pero la aprovecharemos para aprender lo escencial del proceso de construción con el toolchain para arm-gcc.
-* **Práctica 2.1: Botones y técnicas anti-rebote**. En esta práctica si usarémos el wizard de proyecto STM32 y mostrarémos el uso las librerías HAL de ST para GPIO. Lo importante en esta práctica será hablar de las implementaciones basadas en programación orientada a objetos en C y técnicas para mitigar el ruido de lectura en los botones.
+* **Práctica 2.1: Botones y técnicas anti-rebote**. En esta práctica si usarémos STM32CubeMX y mostrarémos el uso las librerías HAL de ST para GPIO. Lo importante en esta práctica será hablar de las implementaciones basadas en programación orientada a objetos en C y técnicas para mitigar el ruido de lectura en los botones.
