@@ -52,7 +52,7 @@ En Windows la forma que recomiendo es instalar el entorno *UNIX-like* [MYSYS2](h
 pacman -Syuu
 pacman -S mingw-w64-ucrt-x86_64-arm-none-eabi-gcc mingw-w64-ucrt-x86_64-arm-none-eabi-binutils mingw-w64-ucrt-x86_64-openocd mingw-w64-ucrt-x86_64-stlink
 ```
-NOTA: Puedes usar la consola UCRT64 pero si quieres usar el GNU toolchain desde CMD, debes añadir a la variable de entorno de sistema PATH este directorio: C:\msys64\ucrt64\bin
+NOTA: Puedes usar la consola UCRT64 pero si quieres usar el GNU toolchain desde CMD, debes añadir a la variable de entorno de sistema PATH este directorio: C:\msys64\ucrt64\bin y por debajo de ese añadir este otro: C:\msys64\usr\bin\
 
 Apartir de aquí, todos comandos de terminal que se mencionen aplicarán para ambos sistemas operativos.
 
