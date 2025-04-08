@@ -149,6 +149,7 @@ Contents of section .text:
 Los 2 bytes más a la izquierda representan la posición en memoria. Estas son direcciones relativas porque este punto del *build* todos los archivos .o iniciaran en la dirección 0.
 
 **Enlazar**:
+
 El proceso de enlazado toma como entrada a todos los objetos (archivos .o) generados por la compilación y al script de enlazado (*linker script*). Recomiendo mucho leer el artículo [From Zero to main(): Demystifying Firmware Linker Scripts](https://interrupt.memfault.com/blog/how-to-write-linker-scripts-for-firmware).
 ```Bash
 # ------------------ Flags de Enlace------------------
