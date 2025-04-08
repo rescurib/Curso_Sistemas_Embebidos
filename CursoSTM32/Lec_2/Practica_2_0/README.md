@@ -150,7 +150,7 @@ Los 2 bytes más a la izquierda representan la posición en memoria. Estas son d
 
 **Enlazar**:
 
-El proceso de enlazado toma como entrada a todos los objetos (archivos .o) generados por la compilación y al script de enlazado (*linker script*). Recomiendo mucho leer el artículo [From Zero to main(): Demystifying Firmware Linker Scripts](https://interrupt.memfault.com/blog/how-to-write-linker-scripts-for-firmware).
+El proceso de enlazado toma como entrada a todos los objetos (archivos .o) generados por la compilación (en este caso es solo uno: main.o) y al script de enlazado (*linker script*). Recomiendo mucho leer el artículo [*From Zero to main(): Demystifying Firmware Linker Scripts*](https://interrupt.memfault.com/blog/how-to-write-linker-scripts-for-firmware) para entender cada línea del archivo *LinkerScript.ld*.
 ```Bash
 # ------------------ Flags de Enlace------------------
 # -T LinkerScript.ld : Especifica el script de enlace (define el diseño de memoria)
@@ -158,7 +158,7 @@ El proceso de enlazado toma como entrada a todos los objetos (archivos .o) gener
 # -----------------------------------------------------------
 arm-none-eabi-ld main.o -T LinkerScript.ld -o LedBlinking.elf 
 ```
-El archivo .elf contiene tambien código máquina pero con los símbolos resueltos. Si usamos nuevamente objdump notaremos algo peculiar:
+El archivo de salida .elf contiene tambien código máquina pero con los símbolos resueltos. Si usamos nuevamente objdump notaremos algo peculiar:
 ```
 .\LedBlinking.elf:     file format elf32-littlearm
 Contents of section .text:
