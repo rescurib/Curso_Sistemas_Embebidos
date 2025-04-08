@@ -154,7 +154,7 @@ El proceso de enlazado toma como entrada a todos los objetos (archivos .o) gener
 ```Bash
 # ------------------ Flags de Enlace------------------
 # -T LinkerScript.ld : Especifica el script de enlace (define el diseño de memoria)
-# -Wl,--gc-sections  : Elimina secciones no utilizadas para reducir el tamaño del binario
+# -o LedBlinking.elf : Especifica el archivo de salida .elf: Executable and Linkable Format
 # -----------------------------------------------------------
 arm-none-eabi-ld main.o -T LinkerScript.ld -o LedBlinking.elf 
 ```
