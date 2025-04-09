@@ -8,10 +8,23 @@ Lo más valioso de esta práctica es la manera en la que lo vamos a hacer. Origi
 
 ## GNU make
 
+Para instalar en Linux (Debian y distros derivadas):
+```bash
+sudo apt install make
+```
+Aunque es buena idea asegurarnos que tengamos todas las herramientas de desarrollo con:
+```bash
+sudo apt install build-essential
+```
+
+Para instalar en Windows con MYSYS2/UCRT:
+
 ```bash
 pacman -Syu
 pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
 ```
+
+Para ambos sistemas estoy asumiendo que ya instalaron las herramientas de ARM que usamos en la práctica 2.0.
 
 ## Creación de proyecto con STM32CubeMX
 Primero ir a ACCESS TO MCU SELECTOR y buscar STM32F103C8T6 (el MCU de la tarjeta Blue Pill).
