@@ -17,7 +17,7 @@ Aunque es buena idea asegurarnos que tengamos todas las herramientas de desarrol
 sudo apt install build-essential
 ```
 
-Para instalar en Windows con MYSYS2/UCRT:
+Para instalar en Windows con MYSYS2, abrir la terminal UCRT y ejecutar:
 
 ```bash
 pacman -Syu
