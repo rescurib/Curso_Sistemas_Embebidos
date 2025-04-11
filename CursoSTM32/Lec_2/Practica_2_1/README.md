@@ -1,4 +1,4 @@
-# Práctica 2.1: Encedido de led con libreria ST
+# Práctica 2.1: Encedido de leds con libreria ST
 
 En esta práctica usaremos el generador de código STM32CubeMX y usaremos la librería de periféricos de ST. La aplicación en si misma será muy sencilla: un botón que controla en modo toggle a un LED verde, y un segundo botón que refleja su estado en un LED rojo:
 
@@ -25,6 +25,65 @@ pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
 ```
 
 Para ambos sistemas estoy asumiendo que ya instalaron las herramientas de ARM que usamos en la práctica 2.0.
+
+### Script de make para la práctica anterior
+En la práctica 2.0 utilizamos el cumpilador, el ensamlador y el linker para la arqutectura ARM así como tambien las utilizades del st-link, todo desde terminal paso a paso. Podemos crear un Makefile que automatice todo el proceso de la siguiente forma:
+
+```bash
+# -------------------------------------
+#       Definición de Variables
+# -------------------------------------
+# Herramientas
+CC      = arm-none-eabi-gcc
+AS      = arm-none-eabi-as
+LD      = arm-none-eabi-ld
+OBJCOPY = arm-none-eabi-objcopy
+FLASH   = st-flash
+
+# Archivos
+SRC     = main.c
+ASM     = main.s
+OBJ     = main.o
+ELF     = LedBlinking.elf
+BIN     = LedBlinking.bin
+LD_SCRIPT = LinkerScript.ld
+
+# Flags de compilación
+CFLAGS  = -mcpu=cortex-m3 -mthumb -Wall -O0 -nostartfiles -nostdlib
+
+# Flags de ensamblado
+ASFLAGS = -mcpu=cortex-m3 -mthumb
+
+# Dirección de memoria para flashear
+FLASH_ADDR = 0x08000000
+
+# -------------------------------------
+#               Reglas
+# -------------------------------------
+
+all: $(BIN)
+
+$(ASM): $(SRC)
+	$(CC) $(CFLAGS) -S $< -o $@
+
+$(OBJ): $(ASM)
+	$(AS) $(ASFLAGS) $< -o $@
+
+$(ELF): $(OBJ)
+	$(LD) $< -T $(LD_SCRIPT) -o $@
+
+$(BIN): $(ELF)
+	$(OBJCOPY) -O binary $< $@
+
+flash: $(BIN)
+	$(FLASH) write $(BIN) $(FLASH_ADDR) && $(FLASH) reset
+
+clean:
+	rm -f $(ASM) $(OBJ) $(ELF) $(BIN)
+
+.PHONY: all flash clean
+
+```
 
 ## Creación de proyecto con STM32CubeMX
 Primero ir a ACCESS TO MCU SELECTOR y buscar STM32F103C8T6 (el MCU de la tarjeta Blue Pill).
