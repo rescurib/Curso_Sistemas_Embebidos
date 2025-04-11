@@ -8,6 +8,8 @@ Lo más valioso de esta práctica es la manera en la que lo vamos a hacer. Origi
 
 ## GNU make
 
+GNU Make es una herramienta de automatización de compilación utilizada para construir programas a partir de su código fuente. Su función principal es detectar qué partes de un programa necesitan recompilarse y ejecutar los comandos necesarios para hacerlo, todo esto definido en un archivo llamado Makefile. Así no perdemos tiempo en re-compilar código que no tenga cambios. Aunque su poder principal radica en la flexibilidad y la automatización que nos da el script del Makefile.
+
 Para instalar en Linux (Debian y distros derivadas):
 ```bash
 sudo apt install make
@@ -23,8 +25,35 @@ Para instalar en Windows con MYSYS2, abrir la terminal UCRT y ejecutar:
 pacman -Syu
 pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
 ```
-
 Para ambos sistemas estoy asumiendo que ya instalaron las herramientas de ARM que usamos en la práctica 2.0.
+
+El Makefile es muy parecido a un lenguaje de scripting como Bash o Bat. Por ejemplo, hacemos un "Hola Mundo" de make creando un archivo con el nombre de Makefile (así, sin extención) con este contenido:
+
+```make
+hello:
+	echo "Hola, make!"
+```
+**NOTA**: usar tab para las instrucciones.
+
+Y ejecutamos con:
+
+```bash
+$ make hello
+echo "Hola, make!"
+Hola, make!
+```
+Observa que imprime tanto los comandos de consola como el resultado de ejecutar el comando.
+
+De forma general, un script de make consiste en un conjunto de reglas asociados a *targets* con la siguiente estructura:
+```make
+targets: pre-requisitos
+	comando
+	comando
+	comando
+```
+* Los *targets* son archivos (o una etiqueta para un conjunto de instrucciones), separados por espacios. Generalmente solo hay uno por regla.
+* Los comandos son una serie de pasos (comandos de bash) que usamos para compilar, ensamblar, linkear, etc. Inician un tab, nunca espacios.
+* Los pre-requisitos son archivos de dependencias (código fuente, codigos objetos, scripts de linker, etc). Estos archivos necesitan existir para el target pueda ser creado.
 
 ### Script de make para la práctica anterior
 En la práctica 2.0 utilizamos el cumpilador, el ensamlador y el linker para la arqutectura ARM así como tambien las utilizades del st-link, todo desde terminal paso a paso. Podemos crear un Makefile que automatice todo el proceso de la siguiente forma:
@@ -88,7 +117,7 @@ clean:
 ## Creación de proyecto con STM32CubeMX
 Primero ir a ACCESS TO MCU SELECTOR y buscar STM32F103C8T6 (el MCU de la tarjeta Blue Pill).
 
-Entradas digitales: B0, B1
-Salidas digitales:  B8 y B9
+* Entradas digitales: B0, B1
+* Salidas digitales:  B8 y B9
 
 La guía de usuario de la HAL y drivers de bajo nivel para los dispositivos STM32F1 esta en el documento [UM1850](https://www.st.com/resource/en/user_manual/um1850-description-of-stm32f1-hal-and-lowlayer-drivers-stmicroelectronics.pdf).
