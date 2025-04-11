@@ -52,8 +52,10 @@ targets: pre-requisitos
 	comando
 ```
 * Los *targets* son archivos (o una etiqueta para un conjunto de instrucciones), separados por espacios. Generalmente solo hay uno por regla.
-* Los comandos son una serie de pasos (comandos de bash) que usamos para compilar, ensamblar, linkear, etc. Inician un tab, nunca espacios.
+* Los comandos son una serie de pasos (comandos de bash) que usamos para compilar, ensamblar, linkear, etc. Inician con un tab, nunca espacios.
 * Los pre-requisitos son archivos de dependencias (código fuente, codigos objetos, scripts de linker, etc). Estos archivos necesitan existir para el target pueda ser creado.
+
+Podemos crear varibles que nos facilitan la escritura de las reglas ya pueden empaqutar cosas como directorios muy largos, conjuntos de archivos y múltiples banderas de compilación.
 
 ### Script de make para la práctica anterior
 En la práctica 2.0 utilizamos el cumpilador, el ensamlador y el linker para la arqutectura ARM así como tambien las utilizades del st-link, todo desde terminal paso a paso. Podemos crear un Makefile que automatice todo el proceso de la siguiente forma:
@@ -111,7 +113,12 @@ clean:
 	rm -f $(ASM) $(OBJ) $(ELF) $(BIN)
 
 .PHONY: all flash clean
+```
+Observen que añadimos incluso reglas para remover archivos generados y también una regla para flashear. Intenten correr nuevamente la práctica 2.0 con:
 
+```bash
+$ make all
+$ make flash
 ```
 
 ## Creación de proyecto con STM32CubeMX
