@@ -120,6 +120,7 @@ Observen que añadimos incluso reglas para remover archivos generados y también
 $ make all
 $ make flash
 ```
+Para entender a fondo como escribir Makefiles, recomiendo revisar la [documentación oficial de GNU make](https://www.gnu.org/software/make/manual/html_node/index.html).
 
 ## Creación de proyecto con STM32CubeMX
 Primero ir a ACCESS TO MCU SELECTOR y buscar STM32F103C8T6 (el MCU de la tarjeta Blue Pill).
