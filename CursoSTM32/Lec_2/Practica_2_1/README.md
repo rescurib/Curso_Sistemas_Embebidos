@@ -60,7 +60,7 @@ targets: pre-requisitos
 Podemos crear varibles que nos facilitan la escritura de las reglas ya pueden empaqutar cosas como directorios muy largos, conjuntos de archivos y múltiples banderas de compilación.
 
 ### Script de make para la práctica anterior
-En la práctica 2.0 utilizamos el cumpilador, el ensamlador y el linker para la arqutectura ARM así como tambien las utilizades del st-link, todo desde terminal paso a paso. Podemos crear un Makefile que automatice todo el proceso de la siguiente forma:
+En la práctica 2.0 utilizamos el cumpilador, el ensamblador y el linker para la arqutectura ARM así como tambien las utilidades para st-link, todo desde terminal paso a paso. Podemos crear un Makefile que automatice todo el proceso de la siguiente forma:
 
 ```bash
 # -------------------------------------
