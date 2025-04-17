@@ -129,9 +129,11 @@ En este punto sería injusto crear desde cero un projecto funcional (listo para 
 
 Descargamos STMCubeMX desde el [sitio de ST](https://www.st.com/en/development-tools/stm32cubemx.html) (disponible para Linux, Windows y Mac). Posiblemente requerirá registro. 
 
-Un vez instalado y abierto el programa, primero ir a ACCESS TO MCU SELECTOR y buscar STM32F103C8T6 (el MCU de la tarjeta Blue Pill). Después de esperar un poco, aparecer la ventana principal del proyecto. La pestaña que debe estar abierta por defecto es Pinout Configuration. En la columna izquierda, desplegamos la pestaña vertical System Core y seleccionamos GPIO. Ahora acomodamos la vista del Pinout Overview hasta que se vea como en la captura y hacemos click los pines de interés. Se desplegaran las configuraciones posibles. En la ventana central podemos darle nombres de etiqueta a los pines (*User Label*):
-
+Un vez instalado y abierto el programa, primero ir a ACCESS TO MCU SELECTOR y buscar STM32F103C8T6 (el MCU de la tarjeta Blue Pill). Después de esperar un poco, aparecer la ventana principal del proyecto. La pestaña que debe estar abierta por defecto es Pinout Configuration. En la columna izquierda, desplegamos la pestaña vertical System Core y seleccionamos GPIO. Ahora acomodamos la vista del Pinout Overview hasta que se vea como en la captura y hacemos click los pines de interés. Se desplegaran las configuraciones posibles. En esta práctica:
 * Entradas digitales: B0, B1
-* Salidas digitales:  B8 y B9
+* Salidas digitales:  B12 y B13
+  
+En la ventana central podemos darle nombres de etiqueta a los pines (*User Label*). Así se vería nuestra configuración de pines en STM32CubeMX:
+
 
 La guía de usuario de la HAL y drivers de bajo nivel para los dispositivos STM32F1 esta en el documento [UM1850](https://www.st.com/resource/en/user_manual/um1850-description-of-stm32f1-hal-and-lowlayer-drivers-stmicroelectronics.pdf).
