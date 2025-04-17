@@ -137,3 +137,10 @@ En la ventana central podemos darle nombres de etiqueta a los pines (*User Label
 
 
 La guía de usuario de la HAL y drivers de bajo nivel para los dispositivos STM32F1 esta en el documento [UM1850](https://www.st.com/resource/en/user_manual/um1850-description-of-stm32f1-hal-and-lowlayer-drivers-stmicroelectronics.pdf).
+
+## Compilación y flasheado
+
+Cargar programa:
+```bash
+STM32_Programmer_CLI -c port=SWD -w build/BluePill_P2_1.bin 0x08000000 -v -rst
+```
