@@ -134,7 +134,9 @@ Un vez instalado y abierto el programa, primero ir a ACCESS TO MCU SELECTOR y bu
 * Salidas digitales:  B12 y B13
   
 En la ventana central podemos darle nombres de etiqueta a los pines (*User Label*). Así se vería nuestra configuración de pines en STM32CubeMX:
-
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=1NybCgF8aPjf_r8tBFaxDB1T-bPgkH48m" width="830">
+<p>
 
 La guía de usuario de la HAL y drivers de bajo nivel para los dispositivos STM32F1 esta en el documento [UM1850](https://www.st.com/resource/en/user_manual/um1850-description-of-stm32f1-hal-and-lowlayer-drivers-stmicroelectronics.pdf).
 
