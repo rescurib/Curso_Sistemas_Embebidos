@@ -125,6 +125,8 @@ $ make flash
 Para entender a fondo como escribir Makefiles, recomiendo revisar la [documentación oficial de GNU make](https://www.gnu.org/software/make/manual/html_node/index.html).
 
 ## Creación de proyecto con STM32CubeMX
+En este punto sería injusto crear desde cero un projecto funcional (listo para una aplicación real) desde 0 ya que hay muchas cosas de las que no hemos hablado como el *startup code* o la tabla vectorial (lo harémos y daré referencias en su momento), ya no mencionar la cureación de un Makefile que ponga todo en su lugar. Afortunadamente existen herramientas de generación de código de inicialización (startup code, linker script, Makefile...) que además proveen de librerías para el control de los periféricos del microcontrolador y funcionalidades/configuración del procesador ARM Cortex-M3. Este es el caso de STMCubeMX. No se debe confundir con STM32CubeIDE, que contiene en si el generador de código pero provee adempas de un entorno gráfico de desarrollo. STMCubeMX nos dejara todo listo para que solo nos encargamos del código de nuestra aplicación y le demos *make all*.
+
 Primero ir a ACCESS TO MCU SELECTOR y buscar STM32F103C8T6 (el MCU de la tarjeta Blue Pill).
 
 * Entradas digitales: B0, B1
