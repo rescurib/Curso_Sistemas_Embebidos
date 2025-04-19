@@ -218,12 +218,17 @@ Presionar el botón de reset de la Blue Pill, ejecutar el siguiente comando (y s
 ```Bash
 st-flash --connect-under-reset erase
 ```
+y verificar con:
+```Bash
+st-info --probe
+```
+
 O con STM32_Programer_CLI (mismo proceso):
 ```Bash
 STM32_Programmer_CLI -c port=SWD mode=UR -e all
 ```
 y verificar con:
 ```Bash
-STM32_Programmer_CLI -c port=SWD mode=UR -e all
+STM32_Programmer_CLI -c port=SWD
 ```
 
