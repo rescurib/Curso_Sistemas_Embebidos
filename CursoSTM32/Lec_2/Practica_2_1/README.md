@@ -144,7 +144,28 @@ Después de configurar los pines, es muy importante hacer la siguiente configura
 
 [screenshot]
 
+## Programa principal
+
 La guía de usuario de la HAL y drivers de bajo nivel para los dispositivos STM32F1 esta en el documento [UM1850](https://www.st.com/resource/en/user_manual/um1850-description-of-stm32f1-hal-and-lowlayer-drivers-stmicroelectronics.pdf).
+
+```C
+/* USER CODE BEGIN WHILE */
+while (1)
+{
+  /* Leer PB0 y hacer toggle de PB12 si está en alto */
+  if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0) == GPIO_PIN_SET)
+  {
+    HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_12);
+    HAL_Delay(200); // Pequeño retardo para evitar múltiples toggles rápidos
+  }
+
+  /* Leer PB1 y copiar su estado a PB13 */
+  GPIO_PinState pinState = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, pinState);
+
+  /* USER CODE END WHILE */
+}
+```
 
 ## Compilación y flasheado
 
