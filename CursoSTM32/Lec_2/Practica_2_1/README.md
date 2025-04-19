@@ -116,7 +116,9 @@ clean:
 
 .PHONY: all flash clean
 ```
-Observen que añadimos incluso reglas para remover archivos generados y también una regla para flashear. Intenten correr nuevamente la práctica 2.0 con:
+Observen que añadimos incluso reglas para remover archivos generados y también una regla para flashear. La directiva .PHONY sirve justamente para indicar de forma explícita que esos *targets* no son realmente archivos sino etiquetas de secuencias de comandos. 
+
+Intenten correr nuevamente la práctica 2.0 con:
 
 ```bash
 $ make all
