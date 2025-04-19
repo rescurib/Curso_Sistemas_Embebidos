@@ -188,3 +188,26 @@ Para mayor comodidad, podemos agregar un *target* al Makefile para flashear:
 flash: $(BUILD_DIR)/$(PROJECT_NAME).bin
 	STM32_Programmer_CLI -c port=SWD -w $< 0x08000000 -v -rst
 ```
+## APÉNDICE: Desbloquear JTAG de la Blue Pill
+
+Si olvidaste habilitar la interfaz de depuración serial, posiblemente estas viendo un mensaje de error como este:
+```C
+$ st-flash erase
+
+st-flash 1.8.0
+
+libusb: info [get_guid] no DeviceInterfaceGUID registered for 'USB\VID_174F&PID_1176\5&B3F4C82&0&7'
+
+libusb: info [get_guid] no DeviceInterfaceGUID registered for 'USB\VID_8087&PID_0AAA\5&B3F4C82&0&10'
+
+libusb: info [get_guid] no DeviceInterfaceGUID registered for 'USB\ROOT_HUB30\4&1D2E5277&0&0'
+
+libusb: info [get_guid] no DeviceInterfaceGUID registered for 'USB\VID_174F&PID_1176&MI_00\6&29E09720&0&0000'
+
+Failed to enter SWD mode
+Failed to connect to target
+Failed to parse flash type or unrecognized flash type
+```
+O usando STM32CubeProgrammer:
+
+
