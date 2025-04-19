@@ -213,4 +213,17 @@ O usando STM32CubeProgrammer:
 ```Bash
 no stm32 target found! if your product embeds debug authentication, please perform a discovery using debug authentication.
 ```
+### Solución 
+Presionar el botón de reset de la Blue Pill, ejecutar el siguiente comando (y soltar tan pronto se impriman las primeras letras):
+```Bash
+st-flash --connect-under-reset erase
+```
+O con STM32_Programer_CLI (mismo proceso):
+```Bash
+STM32_Programmer_CLI -c port=SWD mode=UR -e all
+```
+y verificar con:
+```Bash
+STM32_Programmer_CLI -c port=SWD mode=UR -e all
+```
 
