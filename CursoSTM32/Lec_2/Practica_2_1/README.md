@@ -211,7 +211,8 @@ Failed to parse flash type or unrecognized flash type
 
 O usando STM32CubeProgrammer:
 ```Bash
-no stm32 target found! if your product embeds debug authentication, please perform a discovery using debug authentication.
+no stm32 target found! if your product embeds debug authentication,
+please perform a discovery using debug authentication
 ```
 ### Solución 
 Presionar el botón de reset de la Blue Pill, ejecutar el siguiente comando (y soltar tan pronto se impriman las primeras letras):
