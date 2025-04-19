@@ -148,7 +148,7 @@ La guía de usuario de la HAL y drivers de bajo nivel para los dispositivos STM3
 
 **PRO-TIP**: st-tools no es una aplicación soportada oficialmente por ST. Es recomendable usar STM32_Programmer_CLI. Tiene además muchas más opciones de configuración y está disponible de forma nativa para Linux, Windows y Mac. En todos los sistemas posiblemente sea necesario agregar al path de sistema el directorio hacia el binario del programa para poderlo usar en la terminal desde cualquier directorio.
 
-Descargamos e instalamos  STM32Programmer. En Linux agregamos al path de esta forma:
+Descargamos e instalamos  [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html). En caso de que no se haga por defecto, en Linux agregamos al path de esta forma:
 ```bash
 echo 'export PATH="$PATH:/opt/stm32cubeprogrammer/bin"' >> ~/.bashrc
 ```
