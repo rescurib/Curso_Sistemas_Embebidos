@@ -148,13 +148,13 @@ La guía de usuario de la HAL y drivers de bajo nivel para los dispositivos STM3
 
 ## Compilación y flasheado
 
-**PRO-TIP**: st-tools no es una aplicación soportada oficialmente por ST. Es recomendable usar STM32_Programmer_CLI. Tiene además muchas más opciones de configuración y está disponible de forma nativa para Linux, Windows y Mac. En todos los sistemas posiblemente sea necesario agregar al path de sistema el directorio hacia el binario del programa para poderlo usar en la terminal desde cualquier directorio.
+**PRO-TIP**: st-tools no es una aplicación soportada oficialmente por ST. Es recomendable usar STM32_Programmer_CLI. Tiene además muchas más opciones de configuración y está disponible de forma nativa para Linux, Windows y Mac.
 
 Descargamos e instalamos  [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html). En caso de que no se haga por defecto, en Linux agregamos al path de esta forma:
 ```bash
 echo 'export PATH="$PATH:/opt/stm32cubeprogrammer/bin"' >> ~/.bashrc
 ```
-En Windows hay que agregar el directorio dondd esta el ejecutable a la variable de entorno *PATH*.
+En Windows hay que agregar el directorio en donde está el ejecutable a la variable de entorno *PATH*. Hecho esto ahora podrá ejecutarse en terminal desde cualquier directorio.
 
 ### Cargar programa:
 ```bash
