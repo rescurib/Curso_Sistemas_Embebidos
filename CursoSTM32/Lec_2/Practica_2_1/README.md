@@ -191,7 +191,7 @@ flash: $(BUILD_DIR)/$(PROJECT_NAME).bin
 ## APÉNDICE: Desbloquear JTAG de la Blue Pill
 
 Si olvidaste habilitar la interfaz de depuración serial, posiblemente estas viendo un mensaje de error como este:
-```C
+```Bash
 $ st-flash erase
 
 st-flash 1.8.0
@@ -208,6 +208,9 @@ Failed to enter SWD mode
 Failed to connect to target
 Failed to parse flash type or unrecognized flash type
 ```
-O usando STM32CubeProgrammer:
 
+O usando STM32CubeProgrammer:
+```Bash
+no stm32 target found! if your product embeds debug authentication, please perform a discovery using debug authentication.
+```
 
