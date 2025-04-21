@@ -159,6 +159,13 @@ Nos movemos a la subsección *Code Generator* y nos aseguramos de hacer check en
 
 Con esto tendremos listos todos los archivos del proyecto con make y el código de inicialización.
 
+Nos movemos sl directorio del proyecto y verificamos que el código generado compile correctamente:
+
+```bash
+# --jobs [] Número de comandos a ejecutar simultáneamente.
+$ make --jobs 4
+```
+
 ## Programa principal
 
 La guía de usuario de la HAL y drivers de bajo nivel para los dispositivos STM32F1 esta en el documento [UM1850](https://www.st.com/resource/en/user_manual/um1850-description-of-stm32f1-hal-and-lowlayer-drivers-stmicroelectronics.pdf).
