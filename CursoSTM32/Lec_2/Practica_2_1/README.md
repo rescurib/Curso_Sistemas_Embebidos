@@ -146,7 +146,12 @@ Después de configurar los pines, es muy importante hacer la siguiente configura
 <img src="https://drive.google.com/uc?export=view&id=1CnKP3TW2kQLqSGFr6uhQMh7jMEAxaszg" width="600">
 <p>
 
+Lo siguiente sería configurar el arbol de reloj, pero para esta práctica dejaremos los valores por defecto (haremos ajustes en la Lección 3). Nos movemos ahora a la pestaña de *Project Manager* y nos mostrará la subsección *Project*. Establecemos el nombre del proyecto y ajustamos lo siguiente:
 
+* **Aplication Structure** : Basic
+* **Toolchain/IDE**: Makefile 
+
+Nos movemos a la subsección *Code Generator* y nos aseguramos de hacer check en la opción *Copy only the necesary files*
 
 ## Programa principal
 
