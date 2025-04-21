@@ -142,7 +142,11 @@ En la ventana central podemos darle nombres de etiqueta a los pines (*User Label
 
 Después de configurar los pines, es muy importante hacer la siguiente configuración de puerto JTAG. Por defecto, STM32CubeMX desactiva el puerto para depuración. Esto ocasionará errores al intentar leer/borrar la memoria o cargar. Afortunadamente esto es reversible y habrá un apéndice al final de la lección. Pero ahora vamos a evitarlo de la siguiente manera. Dentro de la misma pestaña *System Core*, da click en la sección *SYS* y en el campo *Debug* seleccionemos la opción *Serial Wire*: 
 
-[screenshot]
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=1CnKP3TW2kQLqSGFr6uhQMh7jMEAxaszg" width="600">
+<p>
+
+
 
 ## Programa principal
 
