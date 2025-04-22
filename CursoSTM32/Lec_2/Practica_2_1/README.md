@@ -215,6 +215,17 @@ while (1)
 ```
 
 ## Compilación y flasheado
+El Makefile generado por STMCubeMX ya tiene un target que convierte el archivo ELF en BIN por lo que la compilación y el flasheado los hacemos con:
+```Bash
+# Build
+make all
+
+# Flashear usando ST-Link
+st-flash write build/BluePill_P2_1.bin 0x08000000
+
+# Reset
+st-flash reset 
+```
 
 **PRO-TIP**: st-tools no es una aplicación soportada oficialmente por ST. Es recomendable usar STM32_Programmer_CLI. Tiene además muchas más opciones de configuración y está disponible de forma nativa para Linux, Windows y Mac.
 
