@@ -168,7 +168,32 @@ $ make --jobs 4
 
 ## Programa principal
 
-La guía de usuario de la HAL y drivers de bajo nivel para los dispositivos STM32F1 esta en el documento [UM1850](https://www.st.com/resource/en/user_manual/um1850-description-of-stm32f1-hal-and-lowlayer-drivers-stmicroelectronics.pdf).
+Una Hardware Description Layer (HDL) o Capa de Abstracción del Hardware es una capa de software que proporciona una interfaz estándar para interactuar con el hardware de un dispositivo, en este caso, los periféricos de un microcontrolador. Su objetivo es abstraer los detalles específicos del hardware. Es un caso particular de API (*Application Programming Interfaces*). La guía de usuario de la HAL y drivers de bajo nivel para los dispositivos STM32F1 está en el documento [UM1850](https://www.st.com/resource/en/user_manual/um1850-description-of-stm32f1-hal-and-lowlayer-drivers-stmicroelectronics.pdf). La documentación del driver para el módulo GPIO esta en la sección *20.2 GPIO Firmware driver API description*.
+
+STM32CubeMX ya se encargó de poner en su lugar las inicializaciones correspondientes a los pines y perféricos de este proyecto. Veamos por ejemplo la definición de la función *MX_GPIO_Init()* en main.c:
+
+```C
+ /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, LED_ROJO_Pin|LED_VERDE_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : SW_0_Pin SW_1_Pin */
+  GPIO_InitStruct.Pin = SW_0_Pin|SW_1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : LED_ROJO_Pin LED_VERDE_Pin */
+  GPIO_InitStruct.Pin = LED_ROJO_Pin|LED_VERDE_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+```
+Implementa todo el proceso de configuración descrito en la lección. Esto significa que solo tenemos que concentrarnos en escribir el código de nuestra aplicación. Antes de eso hay un detalle **muy importante**: todo el códifo que agregemos dentro de main.c debe respetar las secciones comentadas con **USER CODE**.
 
 ```C
 /* USER CODE BEGIN WHILE */
