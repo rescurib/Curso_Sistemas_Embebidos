@@ -1,6 +1,6 @@
 # Práctica 2.1: Encedido de leds con libreria ST
 
-En esta práctica usaremos el generador de código STM32CubeMX y usaremos la librería de periféricos de ST. La aplicación en si misma será muy sencilla: un botón que controla en modo toggle a un LED verde, y un segundo botón que refleja su estado en un LED rojo:
+En esta práctica usaremos el generador de código STM32CubeMX y usaremos la librería de periféricos de ST. La aplicación en si misma será muy sencilla: un botón que controla en modo toggle a un LED rojo, y un segundo botón que refleja su estado en un LED verde:
 
 <p align="center">
 <img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/CursoSTM32/Lec_2/Practica_2_1/P1_2_Circuit_BB.png" width="650">
@@ -200,14 +200,14 @@ Esta función implementa todo el proceso de configuración descrito en la lecci�
 while (1)
 {
   /* Leer PB0 y hacer toggle de PB12 si está en alto */
-  if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0) == GPIO_PIN_SET)
+  if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1) == GPIO_PIN_SET)
   {
     HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_12);
     HAL_Delay(200); // Pequeño retardo para evitar múltiples toggles rápidos
   }
 
   /* Leer PB1 y copiar su estado a PB13 */
-  GPIO_PinState pinState = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1);
+  GPIO_PinState pinState = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0);
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, pinState);
 
   /* USER CODE END WHILE */
