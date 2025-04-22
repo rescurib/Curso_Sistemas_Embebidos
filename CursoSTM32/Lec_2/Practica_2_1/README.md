@@ -193,7 +193,7 @@ STM32CubeMX ya se encargó de poner en su lugar las inicializaciones correspondi
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 ```
-Implementa todo el proceso de configuración descrito en la lección. Esto significa que solo tenemos que concentrarnos en escribir el código de nuestra aplicación. Antes de eso hay un detalle **muy importante**: todo el códifo que agregemos dentro de main.c debe respetar las secciones comentadas con **USER CODE**.
+Esta función implementa todo el proceso de configuración descrito en la lección. Esto significa que solo tenemos que concentrarnos en escribir el código de nuestra aplicación. Antes de eso hay un detalle **muy importante**: todo el código que agregemos dentro de main.c debe respetar las secciones comentadas con **USER CODE** ya que cada que hagamos una modificación al proyecto de STM32CubeMX (ejem. habilitar más pines como entradas o salidas), el código que no hayamos colocado dentro de las secciones de usurio será sobre-escrito. Para esta práctica, colocarémos el código de nuestra aplicación dentro de los límites de *USER CODE BEGIN/END WHILE* en la línea 94 de *main.c*. Los macros, enums y estructuras necesarios para el manejo de la HAL de GPIO pueden encontrarse en el archivo *stm32f1xx_hal_gpio.h* o también están especificados en la descripición de los argumentos de la funciones el documento UM1850. Nuestro código nos queda de la siguiente forma:
 
 ```C
 /* USER CODE BEGIN WHILE */
