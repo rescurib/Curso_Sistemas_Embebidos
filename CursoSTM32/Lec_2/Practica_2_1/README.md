@@ -243,8 +243,8 @@ STM32_Programmer_CLI -c port=SWD -w build/BluePill_P2_1.bin 0x08000000 -v -rst
 Para mayor comodidad, podemos agregar un *target* al Makefile para flashear:
 
 ```make
-flash: $(BUILD_DIR)/$(PROJECT_NAME).bin
-	STM32_Programmer_CLI -c port=SWD -w $< 0x08000000 -v -rst
+flash: all
+	STM32_Programmer_CLI -c port=SWD -w $(BUILD_DIR)/$(TARGET).bin 0x08000000 -v -rst
 ```
 ## APÉNDICE: Desbloquear JTAG de la Blue Pill
 
