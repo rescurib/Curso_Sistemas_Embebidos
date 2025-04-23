@@ -237,6 +237,10 @@ En Windows hay que agregar el directorio en donde está el ejecutable a la varia
 
 ### Cargar programa:
 ```bash
+# -c [port=] : Conectar
+# -w   : Escribir a memoria de dispositivo 
+# -v   : Verificar carga de firmware 
+# -rst : Reset de sistema
 STM32_Programmer_CLI -c port=SWD -w build/BluePill_P2_1.bin 0x08000000 -v -rst
 ```
 
