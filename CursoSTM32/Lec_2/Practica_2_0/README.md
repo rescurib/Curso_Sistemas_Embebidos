@@ -67,8 +67,8 @@ st-info --version
 **TIP**: ya que usaremos varios argumentos para cada comando, es bueno tener en cuenta los siguientes atajos de teclado para la terminal (también funcionan para las terminales de MYSYS2):
 * Ctrl + <*flechas*>  -> Moverse entre argumentos
 * Ctrl + w -> Borra argumento/commando antes del cursor
-
-**REFERENCIA**: Leer *C in a Nutshell [2Ed.]*, Prinz- Crawford, Ch. 19: Compiling with GCC, Pag. 669
+>[!IMPORTANT]
+>**REFERENCIA**: Leer *C in a Nutshell [2Ed.]*, Prinz- Crawford, Ch. 19: Compiling with GCC, Pag. 669
 
 ### Proceso de construcción de un programa en C
 
