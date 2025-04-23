@@ -35,7 +35,8 @@ El Makefile es muy parecido a un lenguaje de scripting como Bash o Bat. Por ejem
 hello:
 	echo "Hola, make!"
 ```
-**NOTA**: usar tab para las instrucciones.
+>[!NOTE]
+> Usar tab al inicio de las instrucciones.
 
 Y ejecutamos con:
 
