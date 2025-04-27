@@ -1,0 +1,54 @@
+# Compiled source code
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Environment files
+.env
+.env.local
+
+# Build directories
+build/
+dist/
+out/
+
+# IDE/editor folders and files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# C/C++ backup files
+*~
+*.swp
+
+# Archives
+*.zip
+*.tar.gz
+*.tar
+*.rar
+
+# Misc
+*.bak
+*.tmp
