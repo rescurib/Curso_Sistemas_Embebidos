@@ -25,5 +25,7 @@ En la realidad física, las transiciones de estado nunca son limpias, sino que o
 </p>
 <p align="center"><em>Figura 2: Rebotes en flanco de bajada.</em></p>
 
+Estos rebotes no siempre ocurren. Dependen de muchos factores incluyendo el modelo o el ejemplar de botón. Pero ocurren esporádicamente y el modo toggle o las operaciones de conteo de pulsaciones son particularmente sencibles a estos rebotes.
+
 
 
