@@ -11,3 +11,7 @@ La diferencia es que implementarémos la operación toggle de una manera que tie
 * El switch tendrá uno de los mejores filtros anti-rebote implementados por software.
 
 Vayamos por partes. ¿Qué son los rebotes en el botón y por qué necesitamos mitigarlos en primer lugar?
+
+## Rebotes mecánicos en los *push-buttons*
+
+En la realidad física, las transiciones de estado nunca son limpias, sino que ocurren con *transientes*, es decir, con perturbaciones iniciales que eventualmente se estabilizan. En el caso de los push-buttons, estos transcientes ocurren principalmente porque al presionarlos, el contacto metálico rebota y cierra y abre el circuito hasta que se estabiliza. Las siguientes señales las tomé con un osciloscopio en modo de captura única y muestras algunos de estos rebotes:
