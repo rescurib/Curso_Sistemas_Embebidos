@@ -16,9 +16,8 @@ Vayamos por partes. ¿Qué son los rebotes en el botón y por qué necesitamos m
 
 En la realidad física, las transiciones de estado nunca son limpias, sino que ocurren con *transientes*, es decir, con perturbaciones iniciales que eventualmente se estabilizan. En el caso de los push-buttons, estos transcientes ocurren principalmente porque al presionarlos, el contacto metálico rebota y cierra y abre el circuito hasta que se estabiliza. Las siguientes señales las tomé con un osciloscopio en modo de captura única y muestras algunos de estos rebotes:
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=/15YZivMvWPZrD1kXMdfTqFdUzCK8HrMYh" width="830">
+  <img src="https://drive.google.com/uc?export=view&id=15YZivMvWPZrD1kXMdfTqFdUzCK8HrMYh" width="830">
 </p>
 <p align="center"><em>Figura 1: Rebotes en flanco de subida.</em></p>
-
 
 
