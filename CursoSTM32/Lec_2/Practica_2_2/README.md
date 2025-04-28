@@ -27,9 +27,14 @@ En la realidad física, las transiciones de estado nunca son limpias, sino que o
 
 Estos rebotes no siempre ocurren. Dependen de muchos factores incluyendo el modelo o el ejemplar de botón. Pero ocurren esporádicamente y el modo toggle o las operaciones de conteo de pulsaciones son particularmente sencibles a estos rebotes.
 
-## Algoritmo anti-rebote
+## Métodos antirebote
 
 En la práctica anterior usamos el método antirebote más simple que es entrar a un retardo bloqueante después de detectar nivel alto en el pin y volver a leer el pin al finalizar el retardo para verificar el cambio de estado. Este método tiene la desventaja de que el microcontrolador no puede hacer nada mas durante ese retardo y tampoco puede adaptarse a transientes de diferente duración.
+
+Jack Ganssle tiene un [excelente artículo](https://www.ganssle.com/debouncing-pt2.htm) dónde recopila y discute varios métodos de mitigación de rebotes. En esta práctica vamos a interpretar el algoritmo que más recomienda:
+```C
+// lorem
+```
 
 
 
