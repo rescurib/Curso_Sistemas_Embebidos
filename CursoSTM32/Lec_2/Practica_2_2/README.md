@@ -42,7 +42,7 @@ bool sw_1_debounce(void)
 {
     g_SW1_state = (g_SW1_state<<1) | !HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1) | 0xe000;
 
-    if(g_SW1_state==0xf000)
+    if( g_SW1_state==0xf000 )
     {
        return true;
     }
@@ -67,7 +67,7 @@ El código con el que generé esta gráfica animada esta en el archivo [Debounce
     /* Obtener tick de systema (ms) */
     uint32_t now = HAL_GetTick();
 
-    if ((now - last_tick) >= 2) // Intervalo de 2 ms.
+    if ( (now - last_tick) >= 2 ) // Intervalo de 2 ms.
     {
         /* Si el intervalo se cumple, ejecutar anti-rebote */
         last_tick = now;
