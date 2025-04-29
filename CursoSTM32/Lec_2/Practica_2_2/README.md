@@ -73,13 +73,13 @@ El código con el que generé esta gráfica animada esta en el archivo [Debounce
         last_tick = now;
         if ( sw_1_debounce() )
         {
-          HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_1);
+          HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_12);
         }
     }
 
     /* Leer PB1 y copiar su estado a PB13 */
     GPIO_PinState pinState = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0);
-    HAL_GPIO_WritePin(GPIOB, LED_VERDE_Pin, pinState);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, pinState);
 
     /* USER CODE END WHILE */
 ```
