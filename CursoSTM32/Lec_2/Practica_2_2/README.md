@@ -31,7 +31,7 @@ Estos rebotes no siempre ocurren. Dependen de muchos factores incluyendo el mode
 
 En la práctica anterior usamos el método antirebote más simple que es entrar a un retardo bloqueante después de detectar nivel alto en el pin y volver a leer el pin al finalizar el retardo para verificar el cambio de estado. Este método tiene la desventaja de que el microcontrolador no puede hacer nada mas durante ese retardo y tampoco puede adaptarse a transientes de diferente duración.
 
-Jack Ganssle tiene un [excelente artículo](https://www.ganssle.com/debouncing-pt2.htm) dónde recopila y discute varios métodos de mitigación de rebotes. En esta práctica vamos a interpretar el algoritmo que más recomienda:
+Jack Ganssle tiene un [excelente artículo](https://www.ganssle.com/debouncing-pt2.htm) dónde recopila y discute varios métodos de mitigación de rebotes. En esta práctica vamos a implementar el algoritmo que más recomienda:
 ```C
 /**
   * @brief  Función anti-rebote.
@@ -41,10 +41,48 @@ Jack Ganssle tiene un [excelente artículo](https://www.ganssle.com/debouncing-p
 bool sw_1_debounce(void)
 {
     g_SW1_state = (g_SW1_state<<1) | !HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1) | 0xe000;
-    if(g_SW1_state==0xf000) return true;
+
+    if(g_SW1_state==0xf000)
+    {
+       return true;
+    }
+
     return false;
 }
 ```
-Aunque esta funcion antirebote tiene solo 3 lineas, no es muy evidente el como funciona. Vamos a examinarla con la siguiente simulación...
+La función sw_1_debounce() se ejecuta de forma periodica (cada 2ms en esta práctica). Aunque esta función antirebote tiene muy pocas lineas, su funcionamiento no es muy evidente. Vamos a examinarla con la siguiente simulación hecha con [GNU Octave](https://octave.org/):
+
+<p align="center">
+  <img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/CursoSTM32/Lec_2/Practica_2_2/button_debounce_anim.gif" width="560">
+</p>
+
+El código con el que generé esta gráfica animada esta en el archivo [DebounceGanssleSim_GIF_v2.m](https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/CursoSTM32/Lec_2/Practica_2_2/DebounceGanssleSim_GIF_v2.m). Lo que podemos notar es que esta función se comporta como un detector de flacos de subida estables. La función retorna *True* sólo en el momento en que el último 1 llega a hacia los bits más significativos. El valor *0xe000* lo único que hace ajustar el tiempo de detección de estabilidad de manera fina.
+
+## Programa principal
+
+```C
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+    /* Obtener tick de systema (ms) */
+    uint32_t now = HAL_GetTick();
+
+    if ((now - last_tick) >= 2) // Intervalo de 2 ms.
+    {
+        /* Si el intervalo se cumple, ejecutar anti-rebote */
+        last_tick = now;
+        if ( sw_1_debounce() )
+        {
+          HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_1);
+        }
+    }
+
+    /* Leer PB1 y copiar su estado a PB13 */
+    GPIO_PinState pinState = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0);
+    HAL_GPIO_WritePin(GPIOB, LED_VERDE_Pin, pinState);
+
+    /* USER CODE END WHILE */
+```
+
 
 
