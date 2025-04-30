@@ -59,7 +59,7 @@ La función sw_1_debounce() se ejecuta de forma periodica (cada 2ms en esta prá
 El código con el que generé esta gráfica animada esta en el archivo [DebounceGanssleSim_GIF_v2.m](https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/CursoSTM32/Lec_2/Practica_2_2/DebounceGanssleSim_GIF_v2.m). Lo que podemos notar es que esta función se comporta como un detector de flacos de subida estables. La función retorna *True* sólo en el momento en que el último 1 llega a hacia los bits más significativos. El valor *0xe000* lo único que hace ajustar el tiempo de detección de estabilidad de manera fina.
 
 ## Programa principal
-
+Copiamos y pegamos en un nuevo a los archivos del código generado en STM32CubeMX, asegurandonos de cambiar el nombre del archivo de proyecto (.ioc) y el nombre de la variable TARGET en el Makefile.
 ```C
   /* USER CODE BEGIN WHILE */
   while (1)
