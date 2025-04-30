@@ -60,6 +60,23 @@ El código con el que generé esta gráfica animada esta en el archivo [Debounce
 
 ## Programa principal
 Copiamos y pegamos en un nuevo a los archivos del código generado en STM32CubeMX, asegurandonos de cambiar el nombre del archivo de proyecto (.ioc) y el nombre de la variable TARGET en el Makefile.
+
+Editamos el archivo main.c y agregamos nuestra valiable **global** g_SW1_state y el prototipo de la función sw_1_debounce() en sus lugares correspondientes respetando las zonas delimitadas por *USER CODE*:
+```C
+/* Private variables ---------------------------------------------------------*/
+
+/* USER CODE BEGIN PV */
+static uint16_t g_SW1_state = 0;
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+/* USER CODE BEGIN PFP */
+bool sw_1_debounce(void);
+/* USER CODE END PFP */
+```
+Y después el loop principal nos queda así:
 ```C
   /* USER CODE BEGIN WHILE */
   while (1)
