@@ -100,6 +100,15 @@ Y después el loop principal nos queda así:
 
     /* USER CODE END WHILE */
 ```
+## Compilación y flasheado
+```Bash
+# Build
+make all
 
+# Flashear usando ST-Link
+st-flash write build/BluePill_P2_2.bin 0x08000000
 
+# Reset
+st-flash reset 
+```
 
