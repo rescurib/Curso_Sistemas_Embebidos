@@ -123,7 +123,11 @@ En los microcontroladores STM32F103, cada pin GPIO puede configurarse para opera
 * **High Speed (50 MHz)**. Ideal para señales rápidas o interfaces de comunicación.
   
 >[!NOTE]
->Aunque se llama "velocidad", en realidad esta configuración ajusta la corriente de salida del buffer, afectando la velocidad de cambio de nivel lógico (flanco de subida y bajada). No limita directamente la frecuencia a la que puedes cambiar el pin en software.
+>Aunque se llama "velocidad" y la documentación la refiere en unidades de frecuencia, en realidad esta configuración ajusta la corriente de salida del buffer, afectando la velocidad de cambio de nivel lógico (flanco de subida y bajada). No limita directamente la frecuencia a la que puedes cambiar el pin en software.
+
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=1T1xUDSPKF7BPWATuPs9OaFBTxbMuB-zP" width="500">
+<p>
 
 ### Registros de configuración y operación
 Cada puerto del los STM32F10x tiene asociados 7 registros:
