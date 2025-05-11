@@ -117,7 +117,7 @@ En modo open drain al P-MOS se le envía alto todo el tiempo de manera que VDD e
 El segundo uso más común de este modo es en protocolos de comunicación de cable único. En [este](https://www.youtube.com/watch?v=j9yx8LOslng) video subtitulado del canal del Texas Instruments se explica muy bien el uso de este modo en las implementaciones del protocolo I2C. 
 
 #### Velocidad de los pines GPIO
-En los microcontroladores STM32F103, cada pin GPIO puede configurarse para operar a diferentes velocidades de conmutación. Esta configuración es válida cuando el pin se usa como salida, ya sea en modo push-pull, open-drain o con funciones alternativas. Estos cambios de velocidad afectan la pendiente (slew rate) de las señales generadas y, por tanto, el consumo de energía y la integridad de señal. Las opciones disponibles son:
+En los microcontroladores STM32, cada pin GPIO puede configurarse para operar a diferentes velocidades de conmutación. Esta configuración es válida cuando el pin se usa como salida, ya sea en modo push-pull, open-drain o con funciones alternativas. Estos cambios de velocidad afectan la pendiente (slew rate) de las señales generadas y, por tanto, el consumo de energía y la integridad de señal. Las opciones disponibles son:
 * **Low speed (2 MHz)**. Útil para minimizar el ruido y consumo.
 * **Medium speed (10 Mhz)**. Compromiso entre velocidad y consumo.
 * **High Speed (50 MHz)**. Ideal para señales rápidas o interfaces de comunicación.
