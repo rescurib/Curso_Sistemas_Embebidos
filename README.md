@@ -53,13 +53,11 @@ Si quieren profundizar en los cálculos (opcional), [LTSpice](https://www.analog
 Recomiendo también instalar [Kicad](https://www.kicad.org/), que es una plataforma de diseño de circuitos impresos gratuita y de código abierto. [Aquí](https://www.youtube.com/playlist?list=PLkyFkq6L7y6tmqIB3yqkS0UnTWYbsH3wn) hay un curso en Youtube muy bueno hecho por [Antonio Raptors](https://github.com/antonioraptors).
 
 ### 2: Lenguaje C y Arquitectura de Computadoras
-Ahora comenzamos con el corazón de los sistemas embebidos basados en procesadores. Al terminar esta sección podrás responder ya una buena parte de las preguntas de una entrevista para una vacante Jr:
+Ahora comenzamos con el corazón de los sistemas embebidos basados en procesadores. Como desarollador de firmware puedo asegurar que el entender la arquitectura de los procesadores no es mera *cultura general* sino una necesidad real a la hora de resolver problemas y diseñar software embebido. Es verdaderamente importante llevar el estudio de la arquitectura de la mano del estudio profundo del lenguaje C:
 
 <p align="center">
 <img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/Lenguaje_C_Arquitectura_Computadoras.png" width="710">
 <p>
-  
-  Como desarollador de firmware puedo asegurar que el entender la arquitectura de los procesadores no es mera *cultura general* sino una necesidad real a la hora de resolver problemas y diseñar software embebido. Es verdaderamente importante llevar el estudio de la arquitectura de la mano del estudio profundo del lenguaje C. 
   
   #### Visual Studio Code
   Si compilar desde terminal con gcc llega a ser muy tedioso, puedes instalar [Visual Studio Code](https://code.visualstudio.com/) y seguir [este tutorial](https://www.youtube.com/watch?v=iPvvbNVisfU) para configurar la extensión para C/C++.
