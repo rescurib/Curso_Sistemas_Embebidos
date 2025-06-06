@@ -85,7 +85,7 @@ En las entrevistas que me han tocado (como entrevistado y entrevistador) el tema
   Si este libro les parece muy formal pueden intentar con *Programacion En C/C++ Java Y Uml* también de Luis Joyanes (tiene capítulos que cubren esos temas). Es más accesible y más facil de conseguir en librerias. 
   
 ### 3: Microcontroladores 
-Teniendo estudiadas las guías 1 y 2 ya tienes todo lo necesario para aprovechar al máximo [mi curso de STM32](https://github.com/rescurib/Curso_Sistemas_Embebidos/tree/main/CursoSTM32). La siguiente guía puede estudiarse simultánemente. En el curso cubriré más temas como máquinas de estado, schedulers y parsers pero estaré haciendo referencias a estos dos libros así que recomiendo seguirla completamente:
+Teniendo estudiadas las guías 1 y 2 ya tienes todo lo necesario para aprovechar al máximo [mi curso de STM32](https://github.com/rescurib/Curso_Sistemas_Embebidos/tree/main/CursoSTM32). La siguiente guía puede estudiarse simultánemente. En el curso cubriré más temas como máquinas de estado, schedulers y parsers pero estaré haciendo referencias a estos tres libros así que recomiendo seguirla completamente:
 <p align="center">
 <img src="https://github.com/rescurib/Curso_Sistemas_Embebidos/blob/main/Diagramas/Guia_Microcontroladores.png" width="710">
 <p>
